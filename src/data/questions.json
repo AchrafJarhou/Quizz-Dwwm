@@ -1,0 +1,587 @@
+[
+  {
+    "id": 1,
+    "categorie": "front",
+    "question": "Comment fonctionne le Virtual DOM dans React ?",
+    "reponse_attendue": "React crée une copie légère du DOM réel en mémoire. À chaque changement d'état, il compare ce nouveau Virtual DOM avec le précédent (via un algorithme de reconciliation) et ne met à jour dans le vrai DOM que les éléments qui ont changé.",
+    "exemple_concret": "Si vous changez juste le statut d'une réservation (ex: de 'En attente' à 'Confirmée'), seul le badge textuel est ré-affiché, pas toute la page.",
+    "options": [
+      "Il recharge entièrement la page à chaque changement",
+      "Il isole l'application du navigateur pour des raisons de sécurité",
+      "C'est une copie en mémoire qui permet de ne mettre à jour que les éléments modifiés"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 2,
+    "categorie": "front",
+    "question": "Quelle est la différence entre un composant contrôlé et non contrôlé dans React ?",
+    "reponse_attendue": "Un composant contrôlé est un composant où la source de vérité des données du formulaire est l'état (state) de React. Dans un composant non contrôlé, les données sont gérées directement par le DOM (via les Refs).",
+    "exemple_concret": "Dans le formulaire d'ajout d'une salle, lier le champ 'nomDeLaSalle' à un useState avec un écouteur 'onChange' en fait un composant contrôlé.",
+    "options": [
+      "Le composant contrôlé est géré par le Back-End",
+      "Le composant contrôlé utilise le state React pour piloter la valeur des champs",
+      "Il n'y a pas de différence, c'est juste une question de performance"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 3,
+    "categorie": "front",
+    "question": "Pourquoi faut-il toujours passer une propriété 'key' lors du rendu d'une liste dans React ?",
+    "reponse_attendue": "La clé (key) aide React à identifier de manière unique quels éléments ont changé, ont été ajoutés ou ont été supprimés. Cela permet d'optimiser les performances lors du re-rendering.",
+    "exemple_concret": "Lors de l'affichage de la liste des salles disponibles, utiliser l'ID unique de la base de données : '<div key={salle.id}>'. Éviter absolument d'utiliser l'index du tableau.",
+    "options": [
+      "Pour appliquer des styles CSS uniques à chaque élément",
+      "Pour permettre à React d'identifier de manière stable et unique chaque élément de la liste",
+      "C'est une obligation imposée par le navigateur pour le SEO"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 4,
+    "categorie": "front",
+    "question": "À quoi sert le hook useEffect dans React et donnez un exemple ?",
+    "reponse_attendue": "useEffect permet d'exécuter des effets secondaires dans les composants fonctionnels (comme des appels d'API, des abonnements, ou des modifications manuelles du DOM). Son tableau de dépendances détermine quand il doit se re-déclencher.",
+    "exemple_concret": "Au chargement du tableau de bord de réservation, exécuter un fetch vers '/api/rooms' à l'intérieur d'un useEffect avec un tableau de dépendances vide `[]` pour ne lancer la requête qu'une seule fois.",
+    "options": [
+      "À styliser dynamiquement un composant",
+      "À gérer des effets secondaires, comme la récupération de données via une API au chargement",
+      "À remplacer intégralement le cycle de vie du serveur Express"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 5,
+    "categorie": "front",
+    "question": "Qu'est-ce que le 'Lifting State Up' (la levée de l'état) dans React ?",
+    "reponse_attendue": "C'est l'action de déplacer un état local vers le plus proche ancêtre commun (composant parent) pour partager cette donnée entre plusieurs composants enfants qui en ont besoin.",
+    "exemple_concret": "Si le calendrier et la liste des détails ont tous les deux besoin de connaître la 'dateSélectionnée', on place l'état de la date dans le composant parent 'Dashboard' et on le distribue via les props.",
+    "options": [
+      "Une technique pour améliorer le référencement Google",
+      "Faire remonter un état dans un composant parent pour le partager entre composants frères",
+      "Une méthode pour envoyer des données directement à MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 6,
+    "categorie": "front",
+    "question": "Comment gérez-vous le Responsive Design dans votre application ?",
+    "reponse_attendue": "Le responsive se gère principalement via des CSS Media Queries ou des frameworks utilitaires en utilisant une approche 'Mobile-First'. On adapte la disposition (layout) pour garantir une lisibilité optimale sur smartphone, tablette et écran PC.",
+    "exemple_concret": "Le tableau des réservations s'affiche sous forme de cartes empilées verticalement sur mobile, mais s'organise en grand tableau grille (Grid/Flexbox) sur un écran d'ordinateur.",
+    "options": [
+      "En créant trois applications React complètement différentes",
+      "En utilisant des Media Queries CSS pour adapter les styles selon la largeur de l'écran",
+      "En demandant au serveur Express de détecter le modèle du téléphone"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 7,
+    "categorie": "front",
+    "question": "Qu'est-ce que le 'Prop Drilling' et comment l'éviter dans un gros projet React ?",
+    "reponse_attendue": "Le Prop Drilling est le fait de passer des props à travers plusieurs niveaux de composants intermédiaires qui n'en ont pas besoin, uniquement pour atteindre un composant enfant éloigné. On l'évite en utilisant l'API Context de React ou des outils de gestion d'état comme Redux ou Zustand.",
+    "exemple_concret": "Passer les infos de l'utilisateur connecté depuis App.jsx vers Navbar, puis vers NavLinks, puis vers UserAvatar. Utiliser un UserContext permet à UserAvatar d'y accéder directement.",
+    "options": [
+      "Une technique pour optimiser les requêtes vers MySQL",
+      "Le transfert excessif de props à travers des composants intermédiaires, évitable avec React Context",
+      "Un outil de compilation de Vite"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 8,
+    "categorie": "front",
+    "question": "Quelle est la différence entre fetch et une bibliothèque comme Axios ?",
+    "reponse_attendue": "Fetch est natif aux navigateurs modernes mais nécessite de convertir manuellement la réponse en JSON et de gérer les erreurs HTTP (comme 404 ou 500) car il ne rejette pas la promesse dans ces cas. Axios transforme automatiquement en JSON, gère mieux les erreurs et prend en charge les intercepteurs.",
+    "exemple_concret": "Avec Axios, une erreur 401 sur votre API de réservation tombe directement dans le bloc .catch() ou try/catch, rendant le traitement plus robuste.",
+    "options": [
+      "Axios est le seul capable de se connecter à Express",
+      "Fetch est intégré au navigateur, Axios est une bibliothèque qui simplifie la gestion du JSON et des erreurs",
+      "Fetch est plus rapide car il n'utilise pas de promesses"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 9,
+    "categorie": "front",
+    "question": "Qu'est-ce que l'Accessibilité Web (RGAA) et comment l'avez-vous appliquée ?",
+    "reponse_attendue": "C'est le fait de rendre un site utilisable par tous, y compris les personnes en situation de handicap. Cela passe par l'utilisation de balises HTML sémantiques, des contrastes de couleurs suffisants, la navigation au clavier et des attributs alt sur les images.",
+    "exemple_concret": "Utiliser une balise `<button>` plutôt qu'un simple `<div>` cliquable pour le bouton de réservation, afin qu'un lecteur d'écran sache qu'il s'agit d'un élément interactif.",
+    "options": [
+      "Un protocole pour sécuriser les serveurs Apache",
+      "Des règles pour s'assurer que l'application est accessible à tout type d'utilisateur et de handicap",
+      "Un système de traduction automatique des pages"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 10,
+    "categorie": "front",
+    "question": "À quoi sert l'utilisation du StrictMode dans React ?",
+    "reponse_attendue": "C'est un outil de développement qui n'a aucun impact en production. Il permet d'identifier des problèmes potentiels dans l'application, en forçant notamment le double rendu des composants pour détecter les effets secondaires indésirables.",
+    "exemple_concret": "Si votre useEffect effectue deux appels API identiques en développement, c'est l'effet du StrictMode pour vous avertir d'un éventuel problème de nettoyage (cleanup).",
+    "options": [
+      "À bloquer le code qui contient des failles de sécurité",
+      "À activer des avertissements supplémentaires pendant le développement pour détecter les bugs logiques",
+      "À rendre l'application compatible avec les anciens navigateurs"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 11,
+    "categorie": "back",
+    "question": "Qu'est-ce qu'un middleware Express et à quoi ça sert ?",
+    "reponse_attendue": "Un middleware est une fonction intermédiaire qui a accès aux objets request (req) et response (res). Elle s'exécute entre la réception de la requête HTTP et le traitement de la route finale pour valider, modifier ou bloquer les flux.",
+    "exemple_concret": "Un middleware 'checkAuth' qui extrait le token JWT des headers. S'il est valide, il fait 'next()', sinon il renvoie une erreur 401 (Unauthorized).",
+    "options": [
+      "Un outil pour connecter l'application à MySQL",
+      "Une fonction intermédiaire qui traite la requête avant la réponse finale",
+      "Un script qui compile le code JavaScript côté serveur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 12,
+    "categorie": "back",
+    "question": "À quoi sert l'utilisation du format d'échange JSON pour votre API ?",
+    "reponse_attendue": "JSON (JavaScript Object Notation) est un format textuel léger, indépendant de tout langage, facile à lire par les humains et à analyser par les machines. Il permet de structurer les données envoyées entre le Front (React) et le Back (Express).",
+    "exemple_concret": "Quand React demande les réservations du jour, Express répond avec un tableau d'objets au format '[{\"id\":1, \"salle\":\"A01\"}]'.",
+    "options": [
+      "À crypter les données de manière invisible",
+      "À formater les échanges de données de manière standardisée entre le client et le serveur",
+      "À accélérer la vitesse de connexion internet de l'utilisateur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 13,
+    "categorie": "back",
+    "question": "Quelle est la différence entre les codes de statut HTTP 401 et 403 ?",
+    "reponse_attendue": "Le code 401 Unauthorized signifie que l'utilisateur n'est pas authentifié (il doit se connecter). Le code 403 Forbidden signifie que l'utilisateur est authentifié mais n'a pas les droits requis pour accéder à la ressource.",
+    "exemple_concret": "Un utilisateur classique qui tente d'accéder à la page de création d'une nouvelle salle de réunion recevra une erreur 403, car seul l'administrateur y a droit.",
+    "options": [
+      "401 est une erreur serveur, 403 est une erreur de base de données",
+      "401 indique un manque d'authentification, 403 indique un manque d'autorisations (droits)",
+      "Ils sont interchangeables et signifient la même chose"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 14,
+    "categorie": "back",
+    "question": "Qu'est-ce qu'une API RESTful ?",
+    "reponse_attendue": "C'est une architecture d'API basée sur le protocole HTTP. Elle utilise des URI claires pour identifier les ressources et s'appuie sur les verbes HTTP standards (GET, POST, PUT, DELETE) pour réaliser les opérations CRUD.",
+    "exemple_concret": "Faire un 'POST /api/reservations' pour créer une réservation, ou un 'DELETE /api/reservations/5' pour annuler la réservation numéro 5.",
+    "options": [
+      "Une extension de base de données MySQL",
+      "Un style d'architecture utilisant les verbes HTTP pour manipuler des ressources via des URL claires",
+      "Un logiciel de sécurité pour serveurs Linux"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 15,
+    "categorie": "back",
+    "question": "Comment gérez-vous les erreurs dans votre application Express ?",
+    "reponse_attendue": "Les erreurs sont capturées via des blocs try/catch dans les fonctions asynchrones (async/await), puis transmises à un middleware global de gestion des erreurs à l'aide de 'next(error)'. Cela évite de faire planter le serveur et renvoie un message propre au client.",
+    "exemple_concret": "Si la base de données MySQL est coupée, le catch intercepte l'erreur et le serveur Express renvoie un statut 500 avec un message 'Erreur interne du serveur' au lieu de divulguer le bug brut.",
+    "options": [
+      "Le serveur s'arrête automatiquement et redémarre à chaque erreur",
+      "Avec des blocs try/catch et un middleware d'erreur global pour renvoyer un statut HTTP adapté (500, 400, etc.)",
+      "En ignorant les erreurs pour ne pas perturber l'utilisateur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 16,
+    "categorie": "back",
+    "question": "Pourquoi sépare-t-on le code en couches distinctes (Routes, Contrôleurs, Services) ?",
+    "reponse_attendue": "Pour respecter le principe de séparation des responsabilités. Les Routes interceptent la requête, les Contrôleurs gèrent la logique HTTP (requête/réponse), et les Services containent la logique métier et les requêtes SQL. Cela rend le code maintenable et testable.",
+    "exemple_concret": "Le contrôleur de réservation vérifie si la requête a un corps valide, puis appelle 'ReservationService.create()' pour exécuter l'insertion en base de données.",
+    "options": [
+      "C'est obligatoire pour faire fonctionner le framework Express",
+      "Pour séparer les responsabilités, rendre le code propre, lisible et facile à maintenir",
+      "Pour permettre au code de s'exécuter plus vite sur le processeur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 17,
+    "categorie": "back",
+    "question": "Quelle est la différence entre Node.js et Express ?",
+    "reponse_attendue": "Node.js est un environnement d'exécution JavaScript côté serveur (basé sur le moteur V8 de Chrome). Express est un framework minimaliste construit par-dessus Node.js qui simplifie la gestion des routes, des requêtes HTTP et des middlewares.",
+    "exemple_concret": "Node.js fournit les bases pour créer un serveur réseau. Express permet d'écrire `app.get('/api')` en une seule ligne au lieu d'analyser l'URL manuellement.",
+    "options": [
+      "Express est une base de données et Node.js est un langage de programmation",
+      "Node.js est l'environnement d'exécution de JS sur le serveur, Express est le framework qui facilite le routage HTTP",
+      "Ce sont deux technologies concurrentes"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 18,
+    "categorie": "back",
+    "question": "Qu'est-ce que le fichier package.json et à quoi sert le dossier node_modules ?",
+    "reponse_attendue": "Le package.json est la carte d'identité de votre projet Node.js. Il liste les métadonnées, les scripts et les dépendances nécessaires. Le dossier node_modules contient le code physique de toutes ces dépendances téléchargées via npm.",
+    "exemple_concret": "Dans votre projet, le package.json liste 'express' et 'mysql2'. Quand vous clonez le projet sur une autre machine, un simple `npm install` recrée le dossier node_modules.",
+    "options": [
+      "Le package.json stocke les tables MySQL et node_modules gère le CSS",
+      "Le package.json est le fichier de configuration qui liste vos dépendances, node_modules contient les fichiers de ces dépendances",
+      "Ce sont des fichiers réservés à la production"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 19,
+    "categorie": "back",
+    "question": "Qu'est-ce que les variables d'environnement (.env) et pourquoi sont-elles cruciales ?",
+    "reponse_attendue": "Les variables d'environnement permettent de stocker des données de configuration sensibles ou dépendantes de l'environnement (développement vs production) en dehors du code source. Elles ne doivent jamais être poussées sur Git.",
+    "exemple_concret": "Stocker le mot de passe de votre base de données MySQL dans un fichier `.env` (`DB_PASSWORD=secret`) et l'appeler via `process.env.DB_PASSWORD` dans Node.js.",
+    "options": [
+      "Ce sont des variables JavaScript globales partagées avec le Front",
+      "Des configurations externes servant à isoler les données secrètes (clés d'API, mots de passe BDD) du code source Git",
+      "Des fichiers permettant d'accélérer le démarrage du serveur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 20,
+    "categorie": "bdd",
+    "question": "Quelle est la différence entre une jointure INNER JOIN et une LEFT JOIN ?",
+    "reponse_attendue": "INNER JOIN retourne uniquement les lignes qui ont une correspondance exacte dans les deux tables. LEFT JOIN retourne toutes les lignes de la table de gauche, enrichies avec les correspondances de droite si elles existent, sinon elle affiche NULL.",
+    "exemple_concret": "INNER JOIN entre 'Salles' et 'Reservations' n'affichera que les salles qui ont AU MOINS une réservation. LEFT JOIN affichera TOUTES les salles du complexe, même celles qui n'ont jamais été réservées.",
+    "options": [
+      "INNER JOIN est plus sécurisé que LEFT JOIN",
+      "INNER JOIN fusionne les lignes correspondantes, LEFT JOIN garde tout de la table de gauche",
+      "Il n'y a aucune différence de résultat, juste de performance"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 21,
+    "categorie": "bdd",
+    "question": "À quoi sert une clé étrangère (Foreign Key) dans MySQL ?",
+    "reponse_attendue": "Une clé étrangère établit une relation logique et applique une contrainte d'intégrité référentielle entre deux tables. Elle empêche d'insérer des données orphelines ou de supprimer des éléments parents par erreur.",
+    "exemple_concret": "Dans la table 'Reservations', le champ 'salle_id' est une clé étrangère pointant vers 'id' de la table 'Salles'. On ne peut pas réserver une salle qui n'existe pas.",
+    "options": [
+      "À accélérer le chiffrement de la base de données",
+      "À lier une table à une autre tout en garantissant la cohérence des données",
+      "À définir la clé principale qui s'auto-incrémente"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 22,
+    "categorie": "bdd",
+    "question": "Qu'est-ce que la cardinalité dans un Modèle Conceptuel de Données (MCD) ?",
+    "reponse_attendue": "La cardinalité exprime le nombre minimum et maximum de fois qu'une entité peut participer à une association. Elles se traduisent par (0,1), (1,1), (0,N) ou (1,N).",
+    "exemple_concret": "Un Utilisateur peut effectuer plusieurs réservations (0,N), mais une Réservation appartient à un et un seul Utilisateur (1,1).",
+    "options": [
+      "Le nombre total de lignes présentes dans une table SQL",
+      "La mesure qui définit le nombre de fois minimum et maximum qu'une entité participe à une relation",
+      "Le niveau de sécurité appliqué à une table de données"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 23,
+    "categorie": "bdd",
+    "question": "Comment passe-t-on d'une relation Many-To-Many (N:M) dans le MCD au Modèle Logique de Données (MLD) ?",
+    "reponse_attendue": "Une relation Many-To-Many ne peut pas exister directement sous forme physique. Elle se transforme au niveau logique en créant une table intermédiaire (table de jointure) contenant les clés primaires des deux autres tables comme clés étrangères.",
+    "exemple_concret": "Si une réunion peut nécessiter plusieurs 'Équipements' (vidéoprojecteur, pointeur) et qu'un équipement peut être lié à plusieurs réunions, on crée une table intermédiaire 'Reservation_Equipement' avec 'reservation_id' et 'equipement_id'.",
+    "options": [
+      "On fusionne tout simplement les deux tables en une seule grosse table",
+      "On crée une table de jointure intermédiaire qui stocke les clés des deux tables associées",
+      "Le système supprime automatiquement la relation car elle est impossible"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 24,
+    "categorie": "bdd",
+    "question": "À quoi sert un index dans une base de données MySQL et quel est son inconvénient ?",
+    "reponse_attendue": "Un index accélère considérablement la vitesse des requêtes de recherche (SELECT) sur les colonnes indexées. Son inconvénient est qu'il ralentit légèrement les opérations d'écriture (INSERT, UPDATE) et consomme plus d'espace disque.",
+    "exemple_concret": "Mettre un index sur le champ 'date_debut' de la table 'Reservations' pour afficher instantanément le planning du jour sans que MySQL ait besoin de lire toute la table ligne par ligne.",
+    "options": [
+      "Il sert à trier les données par ordre alphabétique uniquement",
+      "Il accélère les recherches (SELECT) mais ralentit un peu les écritures et prend de la place en mémoire",
+      "Il empêche les doublons dans une colonne"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 25,
+    "categorie": "bdd",
+    "question": "Comment vous prémunissez-vous contre les injections SQL ?",
+    "reponse_attendue": "Il faut impérativement utiliser des requêtes préparées (prepared statements). Cela sépare l'instruction SQL des données transmises par l'utilisateur, forçant la base de données à traiter les saisies comme de simples chaînes et non du code exécutable.",
+    "exemple_concret": "Dans votre code Express avec le pilote 'mysql2' : utiliser `db.execute('SELECT * FROM utilisateurs WHERE email = ?', [userEmail])` plutôt qu'une concaténaire de chaîne dynamique.",
+    "options": [
+      "En masquant les mots de passe à l'écran lors de la saisie",
+      "En utilisant des requêtes préparées avec des paramètres dissociés",
+      "En changeant les ports par défaut d'écoute de MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 26,
+    "categorie": "bdd",
+    "question": "Qu'est-ce qu'une transaction SQL et quand l'utiliser ?",
+    "reponse_attendue": "Une transaction est une unité de travail logique qui regroupe plusieurs requêtes SQL. Elles doivent toutes réussir (COMMIT) ou toutes échouer (ROLLBACK) pour garantir le principe d'atomicité (ACID) et éviter de corrompre les données.",
+    "exemple_concret": "Si la création d'une réservation nécessite de débiter des crédits de réunion à l'utilisateur ET d'insérer la réservation, les deux requêtes doivent faire partie d'une transaction. Si l'insertion plante, le débit est annulé.",
+    "options": [
+      "Une opération pour transférer la base de données chez un autre hébergeur",
+      "Un groupe de requêtes exécutées comme un bloc unique indissociable pour garantir la cohérence des données",
+      "Un protocole de chiffrement des tables de logs"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 27,
+    "categorie": "bdd",
+    "question": "Qu'est-ce que le principe ACID dans les bases de données ?",
+    "reponse_attendue": "ACID est un acronyme représentant les quatre propriétés garantissant la fiabilité d'une transaction BDD : Atomicité (tout ou rien), Cohérence (règles respectées), Isolation (transactions indépendantes), et Durabilité (données sauvegardées même après panne).",
+    "exemple_concret": "MySQL applique le principe ACID via son moteur de stockage InnoDB utilisé dans votre projet de réservation.",
+    "options": [
+      "Un outil de nettoyage du code mort dans MySQL",
+      "Quatre propriétés essentielles (Atomicité, Cohérence, Isolation, Durabilité) assurant la sécurité des transactions",
+      "Un framework de requêtes SQL asynchrones"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 28,
+    "categorie": "securite",
+    "question": "Qu'est-ce que le hachage de mot de passe et pourquoi n'utilise-t-on pas le chiffrement ?",
+    "reponse_attendue": "Le hachage est une fonction à sens unique (irréversible). On ne peut pas retrouver le mot de passe d'origine à partir du hash. Le chiffrement est à double sens (réversible avec une clé). Pour la sécurité, le jury exige un hachage fort (Bcrypt, Argon2) pour protéger les comptes utilisateurs.",
+    "exemple_concret": "Lors de l'inscription à l'application de réservation, Express reçoit 'Password123!', utilise Bcrypt pour générer '$2b$10$...', et c'est ce hash qui est stocké dans MySQL.",
+    "options": [
+      "Le hachage est réversible alors que le chiffrement ne l'est pas",
+      "Le hachage est une empreinte irréversible à sens unique idéale pour les mots de passe",
+      "Il n'y a aucune différence, ce sont deux mots pour la même technique"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 29,
+    "categorie": "securite",
+    "question": "Qu'est-ce que le mécanisme CORS (Cross-Origin Resource Sharing) ?",
+    "reponse_attendue": "C'est une sécurité implémentée par le navigateur web. Par défaut, un script s'exécutant sur un domaine (ex: localhost:5173 pour React) n'a pas le droit d'accéder aux ressources d'un autre domaine (ex: localhost:3000 pour Express). Le serveur doit explicitement autoriser le domaine d'origine via des headers HTTP.",
+    "exemple_concret": "Dans Express, utiliser le package 'cors' : `app.use(cors({ origin: 'http://localhost:5173' }))` pour permettre à votre application React de consommer vos API.",
+    "options": [
+      "Un protocole de routage pour les applications mobiles",
+      "Une sécurité du navigateur qui bloque ou autorise les requêtes HTTP provenant d'un domaine externe",
+      "Un outil de compression des images côté client"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 30,
+    "categorie": "securite",
+    "question": "Comment fonctionne l'authentification par JWT (JSON Web Token) ?",
+    "reponse_attendue": "Une fois l'utilisateur authentifié (login/password corrects), le serveur génère un token signé contenant des informations (payload) et l'envoie au client. Le client stocke ce token (ex: localStorage ou Cookies) et l'envoie dans le header 'Authorization' (Bearer) à chaque requête vers une route protégée.",
+    "exemple_concret": "React envoie le JWT obtenu lors de la connexion pour valider le droit de l'utilisateur à réserver une salle à 14h.",
+    "options": [
+      "Le serveur stocke une session en mémoire pour chaque utilisateur connecté",
+      "C'est un token signé envoyé par le serveur que le client présente à chaque requête pour prouver son identity sans ré-interroger la table des mots de passe",
+      "Un cookie contenant le mot de passe crypté de l'utilisateur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 31,
+    "categorie": "securite",
+    "question": "Qu'est-ce qu'une faille XSS (Cross-Site Scripting) et comment s'en protéger ?",
+    "reponse_attendue": "Une faille XSS consiste à injecter des scripts malveillants (JavaScript) dans des pages web consultées par d'autres utilisateurs. Pour s'en protéger, il faut échapper et nettoyer (sanitizer) toutes les entrées utilisateurs avant de les afficher.",
+    "exemple_concret": "Si un utilisateur nomme une salle de réunion `<script>malicieux...</script>`, React nous protège nativement en convertissant ce code en texte brut à l'affichage (grâce à l'auto-escaping de JSX).",
+    "options": [
+      "Une intrusion directe dans le serveur MySQL",
+      "L'injection de scripts malveillants exécutés dans le navigateur des autres utilisateurs, évitable en nettoyant et échappant les données",
+      "Une panne logicielle liée à une surcharge de requêtes HTTP"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 32,
+    "categorie": "securite",
+    "question": "Qu'est-ce que le RGPD et quel est son impact sur votre projet de réservation ?",
+    "reponse_attendue": "Le Règlement Général sur la Protection des Données encadre le traitement des données personnelles dans l'UE. Sur notre projet, cela implique de ne collecter que les données nécessaires (minimisation), d'informer l'utilisateur, de sécuriser l'accès et de lui permettre de supprimer son compte.",
+    "exemple_concret": "Pour réserver, on demande uniquement un nom, prénom et email. On ne demande pas de données sensibles inutiles (ex: numéros de sécurité sociale, opinions politiques).",
+    "options": [
+      "Une norme technique pour accélérer le réseau MySQL",
+      "Un règlement européen sur la protection des données personnelles, obligeant à la sécurité et à la transparence des données collectées",
+      "Un protocole de sécurité réservé aux serveurs bancaires"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 33,
+    "categorie": "securite",
+    "question": "Pourquoi est-il dangereux de stocker des informations sensibles dans le localStorage de React ?",
+    "reponse_attendue": "Le localStorage est accessible par n'importe quel script JavaScript s'exécutant sur le même domaine. Si l'application subit une faille XSS, un attaquant peut facilement voler les tokens ou informations sensibles stockées dedans. Les cookies avec l'attribut HttpOnly sont plus sécurisés pour les données ultra-sensibles.",
+    "exemple_concret": "Si un script malveillant s'exécute, un simple `localStorage.getItem('token')` lui permet de récupérer le token de l'utilisateur connecté.",
+    "options": [
+      "Parce que le localStorage s'efface dès que l'ordinateur s'éteint",
+      "Parce qu'il est accessible via JavaScript et vulnérable en cas de faille XSS",
+      "Parce que MySQL ne sait pas lire le localStorage"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 34,
+    "categorie": "securite",
+    "question": "Qu'est-ce qu'une attaque CSRF (Cross-Site Request Forgery) et comment s'en prémunir ?",
+    "reponse_attendue": "L'attaque CSRF consiste à forcer le navigateur d'une victime authentifiée à envoyer une requête malveillante à une application Web à son insu. On s'en protège en utilisant des jetons anti-CSRF ou en configurant l'attribut SameSite=Strict/Lax sur les cookies de session.",
+    "exemple_concret": "Un utilisateur clique sur un lien externe qui déclenche une requête masquée vers `/api/reservations/delete/1`. Si les cookies ne sont pas protégés par SameSite, l'annulation s'exécute par erreur.",
+    "options": [
+      "Le vol des mots de passe directement dans MySQL",
+      "Une attaque forçant un utilisateur authentifié à exécuter des actions non voulues sur un site de confiance",
+      "Une surcharge de trafic réseau visant à faire planter le serveur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 35,
+    "categorie": "securite",
+    "question": "Qu'est-ce que l'OWASP (Open Web Application Security Project) ?",
+    "reponse_attendue": "L'OWASP est une communauté mondiale ouverte à but non lucratif qui publie régulièrement le 'OWASP Top 10', un document de sensibilisation répertoriant les 10 failles de sécurité les plus critiques des applications web afin d'aider les développeurs à sécuriser leur code.",
+    "exemple_concret": "Avoir conçu votre API Express en vérifiant que vous couvrez les points de l'OWASP comme la mauvaise configuration de la sécurité ou les failles d'injection.",
+    "options": [
+      "Un framework de développement concurrent de React",
+      "Une organisation de référence listant les vulnérabilités de sécurité web les plus critiques",
+      "Une suite logicielle payante pour auditer les bases de données"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 36,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce que la méthodologie Agile Scrum et quels sont ses principaux rituels ?",
+    "reponse_attendue": "Scrum est une méthodologie de gestion de projet itérative et incrémentale. Le travail est découpé en cycles courts appelés 'Sprints' (1 à 4 semaines). Les rituels principaux sont le Sprint Planning, le Daily Stand-up (point quotidien), la Sprint Review (démo) et la Rétrospective.",
+    "exemple_concret": "Pour votre projet de groupe, avoir fait des points quotidiens de 15 minutes pour vous répartir les tâches (ex: qui fait le formulaire Front, qui fait la validation d'horaires Back).",
+    "options": [
+      "Une technique algorithmique pour accélérer les boucles for",
+      "Une méthodologie de gestion de projet basée sur des cycles itératifs courts (Sprints) et des réunions régulières",
+      "Un outil automatique de déploiement continu"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 37,
+    "categorie": "gestion_projet",
+    "question": "Quelle est l'utilité de Git et comment décririez-vous le 'Git Flow' ?",
+    "reponse_attendue": "Git est un système de contrôle de version décentralisé. Le Git Flow est une stratégie d'organisation des branches : on garde une branche 'main' (production stable), une branche 'develop' (intégration), et on crée des branches éphémères 'feature/' pour chaque fonctionnalité développée.",
+    "exemple_concret": "Créer une branche `feature/formulaire-salle` pour coder l'interface sans perturber le travail de vos collègues sur la branche principale.",
+    "options": [
+      "Git sert à héberger le site web en production",
+      "Un système de versioning du code basé sur des branches organisées (main, develop, features) pour travailler en équipe sans conflits",
+      "Un protocole de transfert de fichiers volumineux"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 38,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce qu'un cahier des charges et à quoi sert-il ?",
+    "reponse_attendue": "C'est un document contractuel officiel qui définit précisément les besoins, les objectifs, les contraintes techniques, le budget et les délais d'un projet. Il sert de guide de référence pour les développeurs et de garantie pour le client.",
+    "exemple_concret": "Le cahier des charges de votre application stipule que le système doit refuser automatiquement une réservation si la salle est déjà occupée sur ce créneau.",
+    "options": [
+      "Un fichier texte contenant les mots de passe de production",
+      "Un document de référence fixant les objectifs, besoins et contraintes techniques du projet",
+      "La documentation technique générée automatiquement par l'API"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 39,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce que des 'User Stories' et à quoi servent-elles ?",
+    "reponse_attendue": "Une User Story est la description simple d'une fonctionnalité rédigée du point de vue de l'utilisateur final. Sa structure type est : 'En tant que [Rôle], je veux [Action] afin de [Bénéfice]'. Elle aide à structurer le backlog du projet.",
+    "exemple_concret": "En tant qu'Employé, je veux voir le calendrier des disponibilités afin de choisir une salle libre pour ma réunion.",
+    "options": [
+      "L'historique des connexions des utilisateurs dans MySQL",
+      "Une description fonctionnelle rédigée du point de vue utilisateur pour définir un besoin précis",
+      "Une notice d'utilisation de l'application"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 40,
+    "categorie": "gestion_projet",
+    "question": "Pourquoi réalise-t-on des tests unitaires et d'intégration ?",
+    "reponse_attendue": "Les tests unitaires vérifient le bon fonctionnement d'une fonction isolée du reste du code. Les tests d'intégration vérifient que plusieurs briques logicielles assemblées communiquent correctement entre elles. Ils évitent les régressions lors des modifications.",
+    "exemple_concret": "Écrire un test unitaire sur votre fonction Back-End `isDateConflict()` pour vérifier qu'elle renvoie bien true si deux créneaux se chevauchent.",
+    "options": [
+      "Pour mesurer la vitesse de la connexion internet",
+      "Pour s'assurer de la qualité du code, valider les comportements logiques isolés ou assemblés et éviter les régressions",
+      "C'est une étape obligatoire demandée par le navigateur web"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 41,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce que l'intégration continue et le déploiement continu (CI/CD) ?",
+    "reponse_attendue": "La CI/CD est une pratique automatisant le cycle de vie du code. À chaque commit, des scripts automatisés testent et vérifient la conformité du code (CI), puis le déploient automatiquement sur les serveurs de production (CD) si tous les indicateurs sont au vert.",
+    "exemple_concret": "Pousser votre code sur GitHub déclenche des tests automatiques Jest, puis déploie automatiquement l'API Express mis à jour sur votre serveur d'hébergement.",
+    "options": [
+      "Une technique pour lier React à MySQL sans passer par Express",
+      "L'automatisation des tests et du déploiement du code dès qu'une modification est validée",
+      "La sauvegarde régulière des bases de données de production"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 42,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce qu'un wireframe et quelle est la différence avec une maquette haute fidélité ?",
+    "reponse_attendue": "Le wireframe est un schéma en noir et blanc très simple axé sur la structure, la disposition et l'ergonomie (UX) d'une page, sans design ni couleurs. La maquette haute fidélité intègre la charte graphique complète, l'UI finale, les polices de caractères et l'aspect visuel réel.",
+    "exemple_concret": "Avoir dessiné la structure grise des boutons du calendrier de réservation (wireframe) avant de concevoir l'interface finale colorée avec Figma (maquette).",
+    "options": [
+      "Le wireframe est l'architecture de la base de données MySQL",
+      "Le wireframe est un schéma structurel axé sur l'UX, tandis que la maquette intègre le design visuel final (UI)",
+      "Ce sont deux mots synonymes décrivant le code HTML"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 43,
+    "categorie": "gestion_projet",
+    "question": "Comment définissez-vous la dette technique d'un projet ?",
+    "reponse_attendue": "La dette technique correspond au coût futur induit par le choix de solutions de développement rapides et mal conçues à court terme, au détriment d'un code propre et structuré. Elle ralentit les futures évolutions si elle n'est pas remboursée (refactoring).",
+    "exemple_concret": "Ne pas faire de séparation de code en couches (tout écrire dans le fichier server.js pour aller vite). À terme, corriger un bug sur les réservations deviendra extrêmement complexe.",
+    "options": [
+      "L'argent emprunté pour acheter les serveurs d'hébergement",
+      "Les retards accumulés et la complexité future créés par un code initial mal structuré ou codé à la va-vite",
+      "Le coût annuel des licences logicielles utilisées"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 44,
+    "categorie": "securite",
+    "question": "Qu'est-ce qu'un certificat SSL/TLS et HTTPS ?",
+    "reponse_attendue": "Le protocole HTTPS est la version sécurisée de HTTP. Il s'appuie sur un certificat SSL/TLS pour chiffrer les données échangées entre le navigateur et le serveur Express, empêchant l'interception des données en transit (mots de passe, tokens).",
+    "exemple_concret": "Grâce au HTTPS, un pirate présent sur le même réseau Wi-Fi public que l'utilisateur ne pourra pas intercepter l'identifiant et le mot de passe de sa session de réservation.",
+    "options": [
+      "Un outil de compression du code JavaScript",
+      "Un système de chiffrement des communications garantissant que les données échangées ne sont pas lues en clair",
+      "Une clé privée servant à ouvrir le serveur MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 45,
+    "categorie": "gestion_projet",
+    "question": "À quoi sert un fichier .gitignore ?",
+    "reponse_attendue": "Ce fichier indique intentionnellement à Git quels fichiers ou dossiers locaux doivent être ignorés et ne jamais être suivis ni poussés sur les serveurs distants (comme GitHub). Il sert à écarter les dépendances lourdes ou les secrets.",
+    "exemple_concret": "Placer le dossier `node_modules/` et le fichier `.env` dans votre `.gitignore` pour éviter de corrompre votre dépôt avec des fichiers inutiles ou confidentiels.",
+    "options": [
+      "À supprimer définitivement des fichiers du disque dur",
+      "À lister les fichiers et dossiers que Git doit ignorer afin de ne pas les pousser sur le dépôt distant",
+      "À masquer du code directement aux yeux de l'utilisateur final"
+    ],
+    "solution": 1
+  }
+]
