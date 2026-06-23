@@ -45,11 +45,11 @@
     "reponse_attendue": "useEffect permet d'exécuter des effets secondaires dans les composants fonctionnels (comme des appels d'API, des abonnements, ou des modifications manuelles du DOM). Son tableau de dépendances détermine quand il doit se re-déclencher.",
     "exemple_concret": "Au chargement du tableau de bord de réservation, exécuter un fetch vers '/api/rooms' à l'intérieur d'un useEffect avec un tableau de dépendances vide `[]` pour ne lancer la requête qu'une seule fois.",
     "options": [
-      "À styliser dynamiquement un composant",
       "À gérer des effets secondaires, comme la récupération de données via une API au chargement",
+      "À styliser dynamiquement un composant",
       "À remplacer intégralement le cycle de vie du serveur Express"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 5,
@@ -59,10 +59,10 @@
     "exemple_concret": "Si le calendrier et la liste des détails ont tous les deux besoin de connaître la 'dateSélectionnée', on place l'état de la date dans le composant parent 'Dashboard' et on le distribue via les props.",
     "options": [
       "Une technique pour améliorer le référencement Google",
-      "Faire remonter un état dans un composant parent pour le partager entre composants frères",
-      "Une méthode pour envoyer des données directement à MySQL"
+      "Une méthode pour envoyer des données directement à MySQL",
+      "Faire remonter un état dans un composant parent pour le partager entre composants frères"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 6,
@@ -71,24 +71,24 @@
     "reponse_attendue": "Le responsive se gère principalement via des CSS Media Queries ou des frameworks utilitaires en utilisant une approche 'Mobile-First'. On adapte la disposition (layout) pour garantir une lisibilité optimale sur smartphone, tablette et écran PC.",
     "exemple_concret": "Le tableau des réservations s'affiche sous forme de cartes empilées verticalement sur mobile, mais s'organise en grand tableau grille (Grid/Flexbox) sur un écran d'ordinateur.",
     "options": [
-      "En créant trois applications React complètement différentes",
       "En utilisant des Media Queries CSS pour adapter les styles selon la largeur de l'écran",
+      "En créant trois applications React complètement différentes",
       "En demandant au serveur Express de détecter le modèle du téléphone"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 7,
     "categorie": "front",
     "question": "Qu'est-ce que le 'Prop Drilling' et comment l'éviter dans un gros projet React ?",
-    "reponse_attendue": "Le Prop Drilling est le fait de passer des props à travers plusieurs niveaux de composants intermédiaires qui n'en ont pas besoin, uniquement pour atteindre un composant enfant éloigné. On l'évite en utilisant l'API Context de React ou des outils de gestion d'état comme Redux ou Zustand.",
+    "reponse_attendue": "Le Prop Drilling est le fait de passer des props à travers plusieurs niveaux de composants intermêmes qui n'en ont pas besoin, uniquement pour atteindre un composant enfant éloigné. On l'évite en utilisant l'API Context de React ou des outils de gestion d'état comme Redux ou Zustand.",
     "exemple_concret": "Passer les infos de l'utilisateur connecté depuis App.jsx vers Navbar, puis vers NavLinks, puis vers UserAvatar. Utiliser un UserContext permet à UserAvatar d'y accéder directement.",
     "options": [
       "Une technique pour optimiser les requêtes vers MySQL",
       "Le transfert excessif de props à travers des composants intermédiaires, évitable avec React Context",
       "Un outil de compilation de Vite"
     ],
-    "solution": 2
+    "solution": 1
   },
   {
     "id": 8,
@@ -98,8 +98,8 @@
     "exemple_concret": "Avec Axios, une erreur 401 sur votre API de réservation tombe directement dans le bloc .catch() ou try/catch, rendant le traitement plus robuste.",
     "options": [
       "Axios est le seul capable de se connecter à Express",
-      "Fetch est intégré au navigateur, Axios est une bibliothèque qui simplifie la gestion du JSON et des erreurs",
-      "Fetch est plus rapide car il n'utilise pas de promesses"
+      "Fetch est plus rapide car il n'utilise pas de promesses",
+      "Fetch est intégré au navigateur, Axios est une bibliothèque qui simplifie la gestion du JSON et des erreurs"
     ],
     "solution": 2
   },
@@ -114,18 +114,18 @@
       "Des règles pour s'assurer que l'application est accessible à tout type d'utilisateur et de handicap",
       "Un système de traduction automatique des pages"
     ],
-    "solution": 2
+    "solution": 1
   },
   {
     "id": 10,
     "categorie": "front",
     "question": "À quoi sert l'utilisation du StrictMode dans React ?",
     "reponse_attendue": "C'est un outil de développement qui n'a aucun impact en production. Il permet d'identifier des problèmes potentiels dans l'application, en forçant notamment le double rendu des composants pour détecter les effets secondaires indésirables.",
-    "exemple_concret": "Si votre useEffect effectue deux appels API identiques en développement, c'est l'effet du StrictMode pour vous avertir d'un éventuel problème de nettoyage (cleanup).",
+    "exemple_concret": "Si votre useEffect fait deux appels API identiques en développement, c'est l'effet du StrictMode pour vous avertir d'un éventuel problème de nettoyage (cleanup).",
     "options": [
       "À bloquer le code qui contient des failles de sécurité",
-      "À activer des avertissements supplémentaires pendant le développement pour détecter les bugs logiques",
-      "À rendre l'application compatible avec les anciens navigateurs"
+      "À rendre l'application compatible avec les anciens navigateurs",
+      "À activer des avertissements supplémentaires pendant le développement pour détecter les bugs logiques"
     ],
     "solution": 2
   },
@@ -149,11 +149,11 @@
     "reponse_attendue": "JSON (JavaScript Object Notation) est un format textuel léger, indépendant de tout langage, facile à lire par les humains et à analyser par les machines. Il permet de structurer les données envoyées entre le Front (React) et le Back (Express).",
     "exemple_concret": "Quand React demande les réservations du jour, Express répond avec un tableau d'objets au format '[{\"id\":1, \"salle\":\"A01\"}]'.",
     "options": [
-      "À crypter les données de manière invisible",
       "À formater les échanges de données de manière standardisée entre le client et le serveur",
+      "À crypter les données de manière invisible",
       "À accélérer la vitesse de connexion internet de l'utilisateur"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 13,
@@ -175,30 +175,30 @@
     "reponse_attendue": "C'est une architecture d'API basée sur le protocole HTTP. Elle utilise des URI claires pour identifier les ressources et s'appuie sur les verbes HTTP standards (GET, POST, PUT, DELETE) pour réaliser les opérations CRUD.",
     "exemple_concret": "Faire un 'POST /api/reservations' pour créer une réservation, ou un 'DELETE /api/reservations/5' pour annuler la réservation numéro 5.",
     "options": [
-      "Une extension de base de données MySQL",
       "Un style d'architecture utilisant les verbes HTTP pour manipuler des ressources via des URL claires",
+      "Une brique logicielle intégrée à MySQL",
       "Un logiciel de sécurité pour serveurs Linux"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 15,
     "categorie": "back",
     "question": "Comment gérez-vous les erreurs dans votre application Express ?",
     "reponse_attendue": "Les erreurs sont capturées via des blocs try/catch dans les fonctions asynchrones (async/await), puis transmises à un middleware global de gestion des erreurs à l'aide de 'next(error)'. Cela évite de faire planter le serveur et renvoie un message propre au client.",
-    "exemple_concret": "Si la base de données MySQL est coupée, le catch intercepte l'erreur et le serveur Express renvoie un statut 500 avec un message 'Erreur interne du serveur' au lieu de divulguer le bug brut.",
+    "exemple_concret": "Si la base de données MySQL est coupée, le catch intercepte l'erreur et le serveur Express renvoie un statut 500 avec un message 'Erreur interne du serveur'.",
     "options": [
       "Le serveur s'arrête automatiquement et redémarre à chaque erreur",
-      "Avec des blocs try/catch et un middleware d'erreur global pour renvoyer un statut HTTP adapté (500, 400, etc.)",
-      "En ignorant les erreurs pour ne pas perturber l'utilisateur"
+      "En ignorant les erreurs pour ne pas perturber l'utilisateur",
+      "Avec des blocs try/catch et un middleware d'erreur global pour renvoyer un statut HTTP adapté (500, 400, etc.)"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 16,
     "categorie": "back",
     "question": "Pourquoi sépare-t-on le code en couches distinctes (Routes, Contrôleurs, Services) ?",
-    "reponse_attendue": "Pour respecter le principe de séparation des responsabilités. Les Routes interceptent la requête, les Contrôleurs gèrent la logique HTTP (requête/réponse), et les Services containent la logique métier et les requêtes SQL. Cela rend le code maintenable et testable.",
+    "reponse_attendue": "Pour respecter le principe de séparation des responsabilités. Les Routes interceptent la requête, les Contrôleurs gèrent la logique HTTP (requête/réponse), et les Services contiennent la logique métier et les requêtes SQL. Cela rend le code maintenable et testable.",
     "exemple_concret": "Le contrôleur de réservation vérifie si la requête a un corps valide, puis appelle 'ReservationService.create()' pour exécuter l'insertion en base de données.",
     "options": [
       "C'est obligatoire pour faire fonctionner le framework Express",
@@ -227,11 +227,11 @@
     "reponse_attendue": "Le package.json est la carte d'identité de votre projet Node.js. Il liste les métadonnées, les scripts et les dépendances nécessaires. Le dossier node_modules contient le code physique de toutes ces dépendances téléchargées via npm.",
     "exemple_concret": "Dans votre projet, le package.json liste 'express' et 'mysql2'. Quand vous clonez le projet sur une autre machine, un simple `npm install` recrée le dossier node_modules.",
     "options": [
-      "Le package.json stocke les tables MySQL et node_modules gère le CSS",
       "Le package.json est le fichier de configuration qui liste vos dépendances, node_modules contient les fichiers de ces dépendances",
+      "Le package.json stocke les tables MySQL et node_modules gère le CSS",
       "Ce sont des fichiers réservés à la production"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 19,
@@ -241,10 +241,10 @@
     "exemple_concret": "Stocker le mot de passe de votre base de données MySQL dans un fichier `.env` (`DB_PASSWORD=secret`) et l'appeler via `process.env.DB_PASSWORD` dans Node.js.",
     "options": [
       "Ce sont des variables JavaScript globales partagées avec le Front",
-      "Des configurations externes servant à isoler les données secrètes (clés d'API, mots de passe BDD) du code source Git",
-      "Des fichiers permettant d'accélérer le démarrage du serveur"
+      "Des fichiers permettant d'accélérer le démarrage du serveur",
+      "Des configurations externes servant à isoler les données secrètes (clés d'API, mots de passe BDD) du code source Git"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 20,
@@ -293,10 +293,10 @@
     "exemple_concret": "Si une réunion peut nécessiter plusieurs 'Équipements' (vidéoprojecteur, pointeur) et qu'un équipement peut être lié à plusieurs réunions, on crée une table intermédiaire 'Reservation_Equipement' avec 'reservation_id' et 'equipement_id'.",
     "options": [
       "On fusionne tout simplement les deux tables en une seule grosse table",
-      "On crée une table de jointure intermédiaire qui stocke les clés des deux tables associées",
-      "Le système supprime automatiquement la relation car elle est impossible"
+      "Le système supprime automatiquement la relation car elle est impossible",
+      "On crée une table de jointure intermédiaire qui stocke les clés des deux tables associées"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 24,
@@ -318,11 +318,11 @@
     "reponse_attendue": "Il faut impérativement utiliser des requêtes préparées (prepared statements). Cela sépare l'instruction SQL des données transmises par l'utilisateur, forçant la base de données à traiter les saisies comme de simples chaînes et non du code exécutable.",
     "exemple_concret": "Dans votre code Express avec le pilote 'mysql2' : utiliser `db.execute('SELECT * FROM utilisateurs WHERE email = ?', [userEmail])` plutôt qu'une concaténaire de chaîne dynamique.",
     "options": [
-      "En masquant les mots de passe à l'écran lors de la saisie",
       "En utilisant des requêtes préparées avec des paramètres dissociés",
+      "En masquant les mots de passe à l'écran lors de la saisie",
       "En changeant les ports par défaut d'écoute de MySQL"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 26,
@@ -345,10 +345,10 @@
     "exemple_concret": "MySQL applique le principe ACID via son moteur de stockage InnoDB utilisé dans votre projet de réservation.",
     "options": [
       "Un outil de nettoyage du code mort dans MySQL",
-      "Quatre propriétés essentielles (Atomicité, Cohérence, Isolation, Durabilité) assurant la sécurité des transactions",
-      "Un framework de requêtes SQL asynchrones"
+      "Un framework de requêtes SQL asynchrones",
+      "Quatre propriétés essentielles (Atomicité, Cohérence, Isolation, Durabilité) assurant la sécurité des transactions"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 28,
@@ -370,11 +370,11 @@
     "reponse_attendue": "C'est une sécurité implémentée par le navigateur web. Par défaut, un script s'exécutant sur un domaine (ex: localhost:5173 pour React) n'a pas le droit d'accéder aux ressources d'un autre domaine (ex: localhost:3000 pour Express). Le serveur doit explicitement autoriser le domaine d'origine via des headers HTTP.",
     "exemple_concret": "Dans Express, utiliser le package 'cors' : `app.use(cors({ origin: 'http://localhost:5173' }))` pour permettre à votre application React de consommer vos API.",
     "options": [
-      "Un protocole de routage pour les applications mobiles",
       "Une sécurité du navigateur qui bloque ou autorise les requêtes HTTP provenant d'un domaine externe",
+      "Un protocole de routage pour les applications mobiles",
       "Un outil de compression des images côté client"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 30,
@@ -384,7 +384,7 @@
     "exemple_concret": "React envoie le JWT obtenu lors de la connexion pour valider le droit de l'utilisateur à réserver une salle à 14h.",
     "options": [
       "Le serveur stocke une session en mémoire pour chaque utilisateur connecté",
-      "C'est un token signé envoyé par le serveur que le client présente à chaque requête pour prouver son identity sans ré-interroger la table des mots de passe",
+      "C'est un token signé envoyé par le serveur que le client présente à chaque requête pour prouver son identité sans ré-interroger la table des mots de passe",
       "Un cookie contenant le mot de passe crypté de l'utilisateur"
     ],
     "solution": 1
@@ -397,17 +397,17 @@
     "exemple_concret": "Si un utilisateur nomme une salle de réunion `<script>malicieux...</script>`, React nous protège nativement en convertissant ce code en texte brut à l'affichage (grâce à l'auto-escaping de JSX).",
     "options": [
       "Une intrusion directe dans le serveur MySQL",
-      "L'injection de scripts malveillants exécutés dans le navigateur des autres utilisateurs, évitable en nettoyant et échappant les données",
-      "Une panne logicielle liée à une surcharge de requêtes HTTP"
+      "Une panne logicielle liée à une surcharge de requêtes HTTP",
+      "L'injection de scripts malveillants exécutés dans le navigateur des autres utilisateurs, évitable en nettoyant et échappant les données"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 32,
     "categorie": "securite",
     "question": "Qu'est-ce que le RGPD et quel est son impact sur votre projet de réservation ?",
     "reponse_attendue": "Le Règlement Général sur la Protection des Données encadre le traitement des données personnelles dans l'UE. Sur notre projet, cela implique de ne collecter que les données nécessaires (minimisation), d'informer l'utilisateur, de sécuriser l'accès et de lui permettre de supprimer son compte.",
-    "exemple_concret": "Pour réserver, on demande uniquement un nom, prénom et email. On ne demande pas de données sensibles inutiles (ex: numéros de sécurité sociale, opinions politiques).",
+    "exemple_concret": "Pour réserver, on demande uniquement un nom, prénom et email. On ne demande pas de données sensibles inutiles.",
     "options": [
       "Une norme technique pour accélérer le réseau MySQL",
       "Un règlement européen sur la protection des données personnelles, obligeant à la sécurité et à la transparence des données collectées",
@@ -419,14 +419,14 @@
     "id": 33,
     "categorie": "securite",
     "question": "Pourquoi est-il dangereux de stocker des informations sensibles dans le localStorage de React ?",
-    "reponse_attendue": "Le localStorage est accessible par n'importe quel script JavaScript s'exécutant sur le même domaine. Si l'application subit une faille XSS, un attaquant peut facilement voler les tokens ou informations sensibles stockées dedans. Les cookies avec l'attribut HttpOnly sont plus sécurisés pour les données ultra-sensibles.",
+    "reponse_attendue": "Le localStorage est accessible par n'importe quel script JavaScript s'exécutant sur le même domaine. Si l'application subit une faille XSS, un attaquant peut facilement voler les tokens ou informations sensibles stockées dedans.",
     "exemple_concret": "Si un script malveillant s'exécute, un simple `localStorage.getItem('token')` lui permet de récupérer le token de l'utilisateur connecté.",
     "options": [
-      "Parce que le localStorage s'efface dès que l'ordinateur s'éteint",
       "Parce qu'il est accessible via JavaScript et vulnérable en cas de faille XSS",
+      "Parce que le localStorage s'efface dès que l'ordinateur s'éteint",
       "Parce que MySQL ne sait pas lire le localStorage"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 34,
@@ -449,17 +449,17 @@
     "exemple_concret": "Avoir conçu votre API Express en vérifiant que vous couvrez les points de l'OWASP comme la mauvaise configuration de la sécurité ou les failles d'injection.",
     "options": [
       "Un framework de développement concurrent de React",
-      "Une organisation de référence listant les vulnérabilités de sécurité web les plus critiques",
-      "Une suite logicielle payante pour auditer les bases de données"
+      "Une suite logicielle payante pour auditer les bases de données",
+      "Une organisation de référence listant les vulnérabilités de sécurité web les plus critiques"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 36,
     "categorie": "gestion_projet",
     "question": "Qu'est-ce que la méthodologie Agile Scrum et quels sont ses principaux rituels ?",
     "reponse_attendue": "Scrum est une méthodologie de gestion de projet itérative et incrémentale. Le travail est découpé en cycles courts appelés 'Sprints' (1 à 4 semaines). Les rituels principaux sont le Sprint Planning, le Daily Stand-up (point quotidien), la Sprint Review (démo) et la Rétrospective.",
-    "exemple_concret": "Pour votre projet de groupe, avoir fait des points quotidiens de 15 minutes pour vous répartir les tâches (ex: qui fait le formulaire Front, qui fait la validation d'horaires Back).",
+    "exemple_concret": "Pour votre projet de groupe, avoir fait des points quotidiens de 15 minutes pour vous répartir les tâches.",
     "options": [
       "Une technique algorithmique pour accélérer les boucles for",
       "Une méthodologie de gestion de projet basée sur des cycles itératifs courts (Sprints) et des réunions régulières",
@@ -474,11 +474,11 @@
     "reponse_attendue": "Git est un système de contrôle de version décentralisé. Le Git Flow est une stratégie d'organisation des branches : on garde une branche 'main' (production stable), une branche 'develop' (intégration), et on crée des branches éphémères 'feature/' pour chaque fonctionnalité développée.",
     "exemple_concret": "Créer une branche `feature/formulaire-salle` pour coder l'interface sans perturber le travail de vos collègues sur la branche principale.",
     "options": [
-      "Git sert à héberger le site web en production",
       "Un système de versioning du code basé sur des branches organisées (main, develop, features) pour travailler en équipe sans conflits",
+      "Git sert à héberger le site web en production",
       "Un protocole de transfert de fichiers volumineux"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 38,
@@ -488,15 +488,15 @@
     "exemple_concret": "Le cahier des charges de votre application stipule que le système doit refuser automatiquement une réservation si la salle est déjà occupée sur ce créneau.",
     "options": [
       "Un fichier texte contenant les mots de passe de production",
-      "Un document de référence fixant les objectifs, besoins et contraintes techniques du projet",
-      "La documentation technique générée automatiquement par l'API"
+      "La documentation technique générée automatiquement par l'API",
+      "Un document de référence fixant les objectifs, besoins et contraintes techniques du projet"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 39,
     "categorie": "gestion_projet",
-    "question": "Qu'est-ce que des 'User Stories' et à quoi servent-elles ?",
+    "question": "Qu'est-ce qu'des 'User Stories' et à quoi servent-elles ?",
     "reponse_attendue": "Une User Story est la description simple d'une fonctionnalité rédigée du point de vue de l'utilisateur final. Sa structure type est : 'En tant que [Rôle], je veux [Action] afin de [Bénéfice]'. Elle aide à structurer le backlog du projet.",
     "exemple_concret": "En tant qu'Employé, je veux voir le calendrier des disponibilités afin de choisir une salle libre pour ma réunion.",
     "options": [
@@ -513,11 +513,11 @@
     "reponse_attendue": "Les tests unitaires vérifient le bon fonctionnement d'une fonction isolée du reste du code. Les tests d'intégration vérifient que plusieurs briques logicielles assemblées communiquent correctement entre elles. Ils évitent les régressions lors des modifications.",
     "exemple_concret": "Écrire un test unitaire sur votre fonction Back-End `isDateConflict()` pour vérifier qu'elle renvoie bien true si deux créneaux se chevauchent.",
     "options": [
-      "Pour mesurer la vitesse de la connexion internet",
       "Pour s'assurer de la qualité du code, valider les comportements logiques isolés ou assemblés et éviter les régressions",
+      "Pour mesurer la vitesse de la connexion internet",
       "C'est une étape obligatoire demandée par le navigateur web"
     ],
-    "solution": 1
+    "solution": 0
   },
   {
     "id": 41,
@@ -550,13 +550,13 @@
     "categorie": "gestion_projet",
     "question": "Comment définissez-vous la dette technique d'un projet ?",
     "reponse_attendue": "La dette technique correspond au coût futur induit par le choix de solutions de développement rapides et mal conçues à court terme, au détriment d'un code propre et structuré. Elle ralentit les futures évolutions si elle n'est pas remboursée (refactoring).",
-    "exemple_concret": "Ne pas faire de séparation de code en couches (tout écrire dans le fichier server.js pour aller vite). À terme, corriger un bug sur les réservations deviendra extrêmement complexe.",
+    "exemple_concret": "Ne pas faire de séparation de code en couches (tout écrire dans le fichier server.js pour aller vite).",
     "options": [
       "L'argent emprunté pour acheter les serveurs d'hébergement",
-      "Les retards accumulés et la complexité future créés par un code initial mal structuré ou codé à la va-vite",
-      "Le coût annuel des licences logicielles utilisées"
+      "Le coût annuel des licences logicielles utilisées",
+      "Les retards accumulés et la complexité future créés par un code initial mal structuré ou codé à la va-vite"
     ],
-    "solution": 1
+    "solution": 2
   },
   {
     "id": 44,
@@ -583,8 +583,7 @@
       "À masquer du code directement aux yeux de l'utilisateur final"
     ],
     "solution": 1
-  },
-  
+  },  
   {
     "id": 46,
     "categorie": "front",
