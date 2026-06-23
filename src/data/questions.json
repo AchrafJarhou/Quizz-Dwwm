@@ -583,5 +583,85 @@
       "À masquer du code directement aux yeux de l'utilisateur final"
     ],
     "solution": 1
+  },
+  
+  {
+    "id": 46,
+    "categorie": "front",
+    "question": "Qu'est-ce que le Lazy Loading (chargement différé) dans une application React ?",
+    "reponse_attendue": "Le Lazy Loading est une technique d'optimisation des performances qui consiste à ne charger les composants ou les images que lorsqu'ils sont nécessaires (par exemple, quand l'utilisateur navigue sur la page correspondante). On l'implémente avec `React.lazy()` et `<Suspense>`.",
+    "exemple_concret": "Ne pas charger le code de la page 'Administration' (qui est lourde et contient des graphiques) tant qu'un utilisateur classique reste sur la page d'accueil de réservation.",
+    "options": [
+      "Une méthode pour ralentir l'exécution du code afin d'économiser la batterie",
+      "Le chargement à la demande de certaines parties de l'application pour alléger le bundle initial et accélérer le site",
+      "Un système de mise en cache automatique géré par MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 47,
+    "categorie": "back",
+    "question": "Qu'est-ce que le mécanisme de hachage des sessions face au Stateless du JWT ?",
+    "reponse_attendue": "Une architecture de session classique est 'Stateful' : le serveur stocke l'état de l'utilisateur en mémoire ou en BDD et lui donne un ID. Le JWT est 'Stateless' : le serveur ne stocke rien, toutes les informations utilisateur nécessaires sont directement déchiffrables et vérifiables à l'intérieur du token envoyé par le client.",
+    "exemple_concret": "Si votre serveur Express redémarre, les utilisateurs avec un JWT restent connectés car le serveur a juste besoin de sa clé secrète pour valider le token, sans consulter de mémoire vive.",
+    "options": [
+      "Le JWT oblige à stocker chaque token dans une table MySQL dédiée",
+      "Le JWT permet une authentification autonome (Stateless) où le serveur n'a pas besoin de stocker l'état de la session",
+      "Les sessions classiques sont réservées aux applications mobiles, le JWT au Web"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 48,
+    "categorie": "bdd",
+    "question": "Quelle est la différence entre un ORM (comme Sequelize ou Prisma) et un pilote SQL natif (comme mysql2) ?",
+    "reponse_attendue": "Un pilote natif nécessite d'écrire des requêtes SQL brutes sous forme de chaînes de caractères. Un ORM (Object-Relational Mapping) permet d'interagir avec la base de données en manipulant directement des objets JavaScript, masquant ainsi la complexité du SQL et facilitant les migrations.",
+    "exemple_concret": "Avec `mysql2`, on écrit `db.query('SELECT * FROM salles')`. Avec un ORM, on écrira plutôt `salles.findAll()`. Le code devient plus standardisé.",
+    "options": [
+      "L'ORM remplace complètement le serveur Express pour aller plus vite",
+      "Un ORM traduit le code orienté objet JavaScript en requêtes SQL de manière automatique, évitant d'écrire du SQL brut",
+      "Le pilote SQL natif est obligatoire pour utiliser du CSS"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 49,
+    "categorie": "securite",
+    "question": "Qu'est-ce que le principe du 'Moindre Privilège' en sécurité applicative ?",
+    "reponse_attendue": "Ce principe stipule qu'un utilisateur, un programme ou un module ne doit posséder que les droits strictement nécessaires à l'accomplissement de sa tâche, et aucun droit supplémentaire.",
+    "exemple_concret": "L'utilisateur de votre application Express qui se connecte à MySQL ne doit avoir que les privilèges de lecture/écriture (SELECT, INSERT, UPDATE) sur la base du projet, et surtout pas les droits de super-administrateur (ROOT) sur tout le serveur de bases de données.",
+    "options": [
+      "Une technique pour restreindre le nombre de requêtes HTTP par minute",
+      "Donner le minimum de droits d'accès et d'exécution possibles à un utilisateur ou à un script pour limiter les risques en cas de faille",
+      "Un système de tarification dégressif pour l'hébergement cloud"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 50,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce que le 'SemVer' (Semantic Versioning) et comment se lit-il ?",
+    "reponse_attendue": "Le SemVer est un système de numérotation des versions d'un logiciel sous la forme MAJEUR.MINEUR.PATCH (ex: 1.4.2). On augmente le PATCH pour les corrections de bugs, le MINEUR pour l'ajout de fonctionnalités sans cassure, et le MAJEUR en cas de modifications incompatibles avec les versions précédentes.",
+    "exemple_concret": "Si vous corrigez un bug d'affichage sur le calendrier sans rien changer d'autre, votre projet passe par exemple de la version v1.0.0 à v1.0.1.",
+    "options": [
+      "Une méthode d'organisation des tables dans MySQL",
+      "Une norme de notation des versions (Majeur.Mineur.Patch) pour suivre rigoureusement l'évolution et l'impact des mises à jour",
+      "Un algorithme de compression pour Git"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 51,
+    "categorie": "gestion_projet",
+    "question": "Quelle est la différence entre l'environnement de Développement, de Staging (Pré-production) et de Production ?",
+    "reponse_attendue": "Le développement est votre machine locale où le code bouge constamment. Le Staging est une copie conforme du serveur final pour tester l'application en conditions réelles avec le client ou l'équipe de test. La Production est le serveur final accessible aux vrais utilisateurs.",
+    "exemple_concret": "Tester la fonctionnalité d'envoi d'emails de rappel sur le serveur de Staging pour être sûr que tout fonctionne avant de la déployer aux vrais clients sur le serveur de Production.",
+    "options": [
+      "Il n'y a pas de différence, ce sont trois dossiers sur le même ordinateur",
+      "Trois environnements distincts permettant de coder (Dev), de tester en situation réelle (Staging), puis de mettre à disposition du public (Prod) de manière sécurisée",
+      "Ce sont les trois étapes obligatoires du cycle de vie d'un composant React"
+    ],
+    "solution": 1
   }
+
 ]
