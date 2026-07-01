@@ -661,6 +661,657 @@
       "Ce sont les trois étapes obligatoires du cycle de vie d'un composant React"
     ],
     "solution": 1
+  },
+  {
+    "id": 52,
+    "categorie": "front",
+    "question": "Quelle est la différence entre var, let et const ?",
+    "reponse_attendue": "var a une portée de fonction et est hoistée (initialisée à undefined). let et const ont une portée de bloc et restent dans la Temporal Dead Zone tant qu'elles ne sont pas déclarées. const empêche la réassignation de la référence (mais un objet déclaré en const reste mutable).",
+    "exemple_concret": "Utiliser const pour stocker une instance d'Axios ou un composant React, et let pour une variable de boucle ou un compteur.",
+    "options": [
+      "var et let sont identiques, seule const change et bloque tout l'objet",
+      "var a une portée de fonction, tandis que let et const ont une portée de bloc. const empêche la réassignation.",
+      "let est utilisable uniquement côté serveur, var et const côté client"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 53,
+    "categorie": "front",
+    "question": "Qu'est-ce que le hoisting en JavaScript ?",
+    "reponse_attendue": "C'est la remontée des déclarations en haut de leur portée lors de la phase de compilation. Les variables 'var' sont initialisées à undefined, les fonctions déclarées sont entièrement remontées, tandis que let et const restent inaccessibles (TDZ) avant leur ligne de déclaration.",
+    "exemple_concret": "Appeler une fonction classique avant sa ligne d'écriture dans le fichier fonctionne grâce au hoisting, contrairement à une arrow function stockée dans une const.",
+    "options": [
+      "Un système de compression des scripts JavaScript au chargement",
+      "Le mécanisme de rafraîchissement automatique du DOM réel",
+      "La remontée virtuelle des déclarations en haut de leur portée par l'interpréteur"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 54,
+    "categorie": "front",
+    "question": "Quelle différence y a-t-il entre l'opérateur == et l'opérateur === ?",
+    "reponse_attendue": "== compare les valeurs après une coercition (conversion automatique) de type si nécessaire. === compare à la fois le type ET la valeur de manière stricte, sans aucune conversion.",
+    "exemple_concret": "La comparaison `0 == ''` renvoie true, alors que `0 === ''` renvoie false car l'un est un Number et l'autre une String.",
+    "options": [
+      "== compare uniquement le type, === compare uniquement la valeur",
+      "== effectue une conversion de type implicite (coercition), === compare strictement le type et la valeur",
+      "=== est une syntaxe obsolète remplacée par =="
+    ],
+    "solution": 1
+  },
+  {
+    "id": 55,
+    "categorie": "front",
+    "question": "Qu'est-ce qu'une closure (fermeture) en JavaScript ?",
+    "reponse_attendue": "C'est une fonction qui conserve l'accès aux variables de son scope (portée) parent, même après que ce scope parent a fini de s'exécuter. Elle est très utile pour encapsuler des données ou créer des états privés.",
+    "exemple_concret": "Une fonction interne dans un hook personnalisé React qui accède aux variables locales de la fonction principale.",
+    "options": [
+      "Une fonction qui se ferme automatiquement après sa première exécution",
+      "Une fonction qui garde l'accès aux variables de sa portée parente, même après l'exécution de cette dernière",
+      "Un outil permettant de fermer proprement les connexions à MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 56,
+    "categorie": "front",
+    "question": "Callback, Promise et async/await : quelles sont les différences ?",
+    "reponse_attendue": "Ce sont trois évolutions de la gestion de l'asynchronisme. Le callback est une fonction passée en argument exécutée ultérieurement. La Promise représente un objet contenant une valeur future (pending, fulfilled, rejected). async/await est un sucre syntaxique plus lisible basé sur les Promises.",
+    "exemple_concret": "Remplacer l'enchaînement de `.then().catch()` par un bloc synchrone visuellement structuré avec `try { const res = await axios.get(...) } catch...`.",
+    "options": [
+      "Async/await est asynchrone, les Promises et callbacks sont purement synchrones",
+      "Trois méthodes pour gérer l'asynchrone : le callback (fonction en argument), la Promise (état futur) et async/await (syntaxe moderne)",
+      "Callbacks sont réservés à Node.js, Promises à React"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 57,
+    "categorie": "front",
+    "question": "Qu'est-ce que l'Event Loop (boucle d'événements) ?",
+    "reponse_attendue": "C'est le mécanisme mono-thread de JavaScript qui gère l'exécution du code en vidant la pile d'appels (Call Stack), puis en traitant les files d'attente des tâches secondaires. Les microtâches (Promises) passent toujours avant les macrotâches (setTimeout).",
+    "exemple_concret": "Expliquer pourquoi un `setTimeout(() => {}, 0)` s'exécutera toujours après un `console.log()` classique placé juste en dessous.",
+    "options": [
+      "Une boucle for infinie gérant le rendu graphique de React",
+      "Le mécanisme qui surveille la pile d'appels et orchestre l'exécution du code asynchrone",
+      "Le système réseau de Node.js pour écouter sur un port donné"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 58,
+    "categorie": "front",
+    "question": "Comment se comporte le mot-clé 'this' dans une fonction classique vs une arrow function ?",
+    "reponse_attendue": "Dans une fonction classique, 'this' est dynamique et dépend uniquement de la manière dont la fonction est appelée. Dans une arrow function, 'this' est lexical : il n'existe pas en propre et hérite directement du contexte englobant.",
+    "exemple_concret": "Dans React, utiliser des arrow functions pour les gestionnaires d'événements évite d'avoir à faire des `.bind(this)` fastidieux dans le constructeur.",
+    "options": [
+      "L'arrow function possède un 'this' dynamique modifiable par .bind()",
+      "Une fonction classique hérite du contexte parent, l'arrow function crée un scope global",
+      "La fonction classique a son propre 'this' selon l'appel, l'arrow function capture le 'this' de son contexte lexical parent"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 59,
+    "categorie": "front",
+    "question": "À quoi servent les méthodes fonctionnelles map, filter et reduce ?",
+    "reponse_attendue": "map transforme chaque élément d'un tableau et retourne un nouveau tableau de même taille. filter sélectionne les éléments répondant à un test et retourne un tableau filtré. reduce agrège toutes les données pour retourner une seule valeur finale. Elles respectent le principe d'immutabilité.",
+    "exemple_concret": "Utiliser `.map()` pour transformer un tableau d'objets 'salle' en une liste de composants JSX `<li>` affichables à l'écran.",
+    "options": [
+      "À modifier directement le tableau d'origine pour économiser de la mémoire",
+      "À manipuler les données d'un tableau de façon immuable : map transforme, filter sélectionne, reduce accumule",
+      "Ce sont des requêtes SQL intégrées au JavaScript"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 60,
+    "categorie": "front",
+    "question": "Quelle est la différence fondamentale entre null et undefined ?",
+    "reponse_attendue": "undefined est la valeur par défaut attribuée automatiquement par le système à une variable déclarée mais non initialisée. null est une valeur attribuée volontairement par le développeur pour indiquer l'absence intentionnelle d'objet ou de valeur.",
+    "exemple_concret": "Si une recherche de réservation en base ne renvoie rien, le serveur Express renverra explicitement `null` au lieu de laisser la propriété `undefined`.",
+    "options": [
+      "undefined est l'absence de déclaration ou d'initialisation automatique, null est une affectation volontaire d'absence de valeur",
+      "undefined est une erreur de syntaxe, null est une valeur valide",
+      "Ils sont strictement identiques en type et en valeur"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 61,
+    "categorie": "front",
+    "question": "Quelle est la différence entre l'opérateur logiques || (OU) et l'opérateur ?? (Nullish Coalescing) ?",
+    "reponse_attendue": "L'opérateur || renvoie l'élément de droite si l'élément de gauche est évalué à 'falsy' (0, '', false, null, undefined). L'opérateur ?? ne renvoie l'élément de droite QUE si la partie gauche vaut strictement 'null' ou 'undefined'.",
+    "exemple_concret": "Si la capacité d'une salle de réunion vaut 0, `capacite || 10` renverrait 10 (incorrect), alors que `capacite ?? 10` renverra bien 0.",
+    "options": [
+      "L'opérateur || est obsolète et a été remplacé par ??",
+      "|| teste le type, ?? teste uniquement la valeur numérique",
+      "|| se déclenche pour n'importe quelle valeur falsy (0, ''), tandis que ?? ne réagit qu'au vrai null/undefined"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 62,
+    "categorie": "front",
+    "question": "Qu'est-ce que la syntaxe spread et la syntaxe rest (...) ?",
+    "reponse_attendue": "Le spread (étalement) extrait les éléments d'un tableau ou d'un objet pour les injecter ailleurs (copie superficielle). Le rest (rassemblement) capture plusieurs arguments ou propriétés restants pour les condenser dans un seul tableau.",
+    "exemple_concret": "Faire `const miseAJour = { ...salle, statut: 'Occupee' }` utilise le spread pour copier l'objet salle tout en modifiant une propriété.",
+    "options": [
+      "Le spread fusionne deux fonctions, le rest met en pause l'exécution du code",
+      "Le spread étale un itérable ou objet dans un nouveau conteneur, le rest regroupe le reliquat d'éléments dans un tableau",
+      "Ce sont des syntaxes spécifiques à l'ORM Sequelize"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 63,
+    "categorie": "front",
+    "question": "Différence entre une copie superficielle (shallow copy) et une copie profonde (deep copy) ?",
+    "reponse_attendue": "Une copie superficielle ({...obj}) duplique uniquement les propriétés du premier niveau. Si l'objet contient des sous-objets imbriqués, ils sont copiés par référence (partagés). Une copie profonde (structuredClone) clone intégralement l'arborescence, rompant tout lien.",
+    "exemple_concret": "Si vous faites une shallow copy d'un utilisateur contenant un sous-objet 'adresse', modifier la rue de la copie modifiera aussi l'original.",
+    "options": [
+      "La copie superficielle est plus lente que la copie profonde",
+      "La copie superficielle ne copie que le premier niveau et garde les références imbriquées, la copie profonde duplique tout",
+      "React interdit formellement l'usage des copies profondes"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 64,
+    "categorie": "front",
+    "question": "JavaScript est-il un langage orienté objet à classes classique ?",
+    "reponse_attendue": "Non, originellement JavaScript est un langage basé sur l'héritage prototypal. Le mot-clé 'class' introduit en ES6 n'est qu'un sucre syntaxique masquant la mécanique des prototypes en arrière-plan.",
+    "exemple_concret": "Même en écrivant `class Formulaire extends React.Component`, le moteur JavaScript utilise les chaînes de prototypes sous le capot.",
+    "options": [
+      "Oui, c'est un langage à classes pur comme Java ou C#",
+      "Non, c'est un langage basé sur les prototypes, le mot-clé class n'est qu'un habillage syntaxique",
+      "C'est un langage purement procédural sans aucun concept d'objet"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 65,
+    "categorie": "front",
+    "question": "Qu'est-ce que le JSON et comment le manipule-t-on nativement ?",
+    "reponse_attendue": "JSON (JavaScript Object Notation) est un format textuel d'échange de données universel. On utilise `JSON.stringify()` pour transformer un objet JavaScript en chaîne de caractères (sérialisation) et `JSON.parse()` pour faire l'opération inverse (désérialisation).",
+    "exemple_concret": "Express utilise `res.json(donnees)` pour transformer automatiquement vos lignes MySQL en texte JSON lisible par React.",
+    "options": [
+      "Un langage de programmation concurrent du JavaScript",
+      "Un format texte d'échange de données manipulé via JSON.stringify (objet vers chaîne) et JSON.parse (chaîne vers objet)",
+      "Une base de données intégrée directement dans le navigateur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 66,
+    "categorie": "front",
+    "question": "Qu'est-ce que le DOM (Document Object Model) ?",
+    "reponse_attendue": "C'est une interface de programmation (API) qui représente la structure d'un document HTML sous forme d'un arbre d'objets. JavaScript utilise cet arbre pour lire, modifier ou styliser dynamiquement le contenu de la page.",
+    "exemple_concret": "Faire un `document.getElementById('bouton-reserver')` pour cibler et modifier l'état d'un élément graphique de manière native.",
+    "options": [
+      "Le serveur local créé par Vite pour compiler le code",
+      "Une extension permettant de sécuriser le code JavaScript",
+      "Une représentation arborescente en objets du document HTML, manipulable par script"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 67,
+    "categorie": "front",
+    "question": "Qu'est-ce que React et quel est son modèle de rendu ?",
+    "reponse_attendue": "React est une bibliothèque JavaScript déclarative conçue pour créer des interfaces utilisateur SPA à l'aide de composants isolés et réutilisables. Son modèle repose sur un rendu déclaratif et prévisible.",
+    "options": [
+      "Un framework d'architecture monolithique côté serveur",
+      "Une bibliothèque front-end basée sur des composants réutilisables et un rendu déclaratif",
+      "Un système de base de données asynchrone"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 68,
+    "categorie": "front",
+    "question": "Quelle est la différence fondamentale entre les props et le state dans React ?",
+    "reponse_attendue": "Les props sont des paramètres de configuration transmis par un composant parent à son enfant, elles sont immuables (lecture seule). Le state est un état interne géré localement par le composant lui-même, il est mutable via son setter et déclenche un re-render à chaque mise à jour.",
+    "options": [
+      "Le state est partagé avec toute l'application, les props restent locales",
+      "Les props sont mutables par l'enfant, le state est figé par le parent",
+      "Les props sont transmises de l'extérieur et immuables, le state est l'état local interne modifiable du composant"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 69,
+    "categorie": "front",
+    "question": "Un composant enfant peut-il modifier directement les props reçues ?",
+    "reponse_attendue": "Non, les props sont strictement en lecture seule pour respecter le principe de flux de données unidirectionnel. Si l'enfant doit faire évoluer une donnée, il doit appeler une fonction callback passée en prop par le parent pour que ce dernier modifie son propre state.",
+    "options": [
+      "Non, les props sont immuables. L'enfant doit notifier le parent via une fonction callback pour provoquer un changement",
+      "Oui, en réassignant directement la prop (ex: props.valeur = 10)",
+      "Oui, mais uniquement si le composant est écrit sous forme de classe"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 70,
+    "categorie": "front",
+    "question": "Qu'est-ce que le JSX ?",
+    "reponse_attendue": "C'est une extension de syntaxe JavaScript ressemblant visuellement à du HTML. Elle est transpilée en appels de fonctions classiques `React.createElement()`, décrivant l'arborescence graphique de l'interface.",
+    "options": [
+      "Une feuille de style moderne remplaçant le CSS classique",
+      "Une extension de syntaxe mélangeant HTML et JS, convertie en instructions React.createElement",
+      "Un protocole de communication sécurisé spécifique à Facebook"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 71,
+    "categorie": "front",
+    "question": "À quoi sert le hook useState ?",
+    "reponse_attendue": "useState permet d'injecter une variable d'état local à l'intérieur d'un composant fonctionnel. Il retourne un tableau contenant la valeur courante de l'état et une fonction de mise à jour (setter) qui force React à recalculer et ré-afficher le composant.",
+    "options": [
+      "À appeler une base de données MySQL à distance",
+      "À déclarer un état local et sa fonction de modification pour piloter les re-rendus",
+      "À lier une URL à une page spécifique"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 72,
+    "categorie": "front",
+    "question": "Quels sont les équivalents en Hooks des anciennes méthodes de cycle de vie des classes ?",
+    "reponse_attendue": "Le hook `useEffect` unifie le cycle de vie. Un tableau de dépendances vide `[]` équivaut à `componentDidMount`. La fonction de nettoyage retournée à la fin du hook remplace `componentWillUnmount`.",
+    "options": [
+      "useState remplace toutes les étapes du cycle de vie",
+      "useContext gère le montage et useMemo gère le démontage",
+      "useEffect avec un tableau vide [] simule le montage, et sa fonction de return gère le démontage"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 73,
+    "categorie": "front",
+    "question": "À quoi servent précisément useMemo, useCallback et React.memo ?",
+    "reponse_attendue": "Ce sont des outils d'optimisation basés sur la mémoïsation. useMemo stocke le résultat d'un calcul lourd. useCallback préserve la référence d'une fonction pour éviter sa re-déclaration. React.memo empêche un composant enfant de se ré-afficher si ses props n'ont pas bougé.",
+    "options": [
+      "À créer des animations CSS fluides à l'écran",
+      "À optimiser les performances en mémorisant des calculs (useMemo), des fonctions (useCallback) ou des composants (React.memo)",
+      "À valider la structure des formulaires d'envoi"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 74,
+    "categorie": "front",
+    "question": "Qu'est-ce que le flux de données unidirectionnel dans l'écosystème React ?",
+    "reponse_attendue": "C'est l'architecture logicielle stipulant que les données se déplacent uniquement du haut (composants parents) vers le bas (composants enfants) via les props. Cela rend le suivi des états et le débogage de l'application extrêmement prévisibles.",
+    "options": [
+      "Le fait que le serveur Express réponde avant que React ne demande",
+      "Un sens unique de circulation des données, du parent vers les enfants, garantissant la prévisibilité de l'application",
+      "Une contrainte réseau forçant l'utilisation d'une seule route API"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 75,
+    "categorie": "front",
+    "question": "Comment fonctionne le routage côté client via des outils comme react-router ?",
+    "reponse_attendue": "Le routeur intercepte les changements d'URL initiés par l'utilisateur et affiche dynamiquement le composant associé sans recharger la page. L'application conserve son statut de SPA (Single Page Application) en exploitant l'API History du navigateur.",
+    "options": [
+      "En rechargeant entièrement le fichier index.html à chaque clic",
+      "En associant une URL à un composant et en modifiant le DOM à la volée sans rechargement de page",
+      "En redirigeant les flux réseau directement vers le serveur MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 76,
+    "categorie": "front",
+    "question": "Comment sécurise-t-on l'accès à une route graphique (ProtectedRoute) côté client ?",
+    "reponse_attendue": "On englobe la route cible dans un composant conditionnel qui vérifie la présence d'un token ou d'un état d'authentification. S'il est absent, il redirige vers le login. Attention : cette barrière n'est que visuelle, la sécurité réelle doit être appliquée sur les routes de l'API.",
+    "options": [
+      "En cryptant le code JavaScript stocké sur le disque dur de l'utilisateur",
+      "En utilisant un composant garde qui bloque l'affichage si l'état d'authentification est faux, sachant que la vraie sécurité se fait côté API",
+      "En interdisant l'accès au navigateur Chrome"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 77,
+    "categorie": "back",
+    "question": "Node.js est mono-thread. Comment gère-t-il des milliers de requêtes simultanées ?",
+    "reponse_attendue": "Il utilise un modèle d'entrées/sorties (I/O) non bloquant et asynchrone, piloté par l'Event Loop. Les tâches lourdes (disque, réseau) sont déléguées au système sous-jacent. Un code synchrone lourd bloquerait tout le serveur pour tous les clients.",
+    "options": [
+      "En créant un nouveau thread CPU pour chaque utilisateur connecté",
+      "Grâce à un modèle d'E/S non bloquant basé sur l'event loop qui délègue les tâches système lourdes",
+      "En forçant les clients à attendre leur tour de manière séquentielle"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 78,
+    "categorie": "back",
+    "question": "À quoi sert précisément le middleware natif express.json() ?",
+    "reponse_attendue": "Il intercepte le corps (body) textuel des requêtes HTTP entrantes au format JSON, l'analyse (parse) et l'injecte sous forme d'objet JavaScript manipulable directement dans `req.body`. Sans lui, `req.body` vaut undefined sur un POST.",
+    "options": [
+      "À formater les réponses envoyées vers MySQL",
+      "À analyser le corps JSON des requêtes entrantes pour le rendre accessible dans req.body",
+      "À crypter les fichiers de log du serveur Express"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 79,
+    "categorie": "back",
+    "question": "Quelle est la signature spécifique d'un middleware de gestion d'erreurs global dans Express ?",
+    "reponse_attendue": "Il prend obligatoirement 4 arguments en paramètre : `(err, req, res, next)`. C'est cette arité précise de 4 arguments qui indique à Express qu'il doit dérouter le flux d'exécution standard vers ce middleware lorsqu'une erreur survient. Il doit être déclaré en dernier.",
+    "options": [
+      "Il prend deux arguments : (req, res)",
+      "Il prend quatre arguments spécifiques : (err, req, res, next), lui permettant d'être identifié comme gestionnaire d'erreurs par Express",
+      "C'est une fonction fléchée anonyme ne prenant aucun paramètre"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 80,
+    "categorie": "back",
+    "question": "Quels sont les 4 grands piliers de la Programmation Orientée Objet (POO) ?",
+    "reponse_attendue": "Les quatre piliers indispensables sont : l'Encapsulation (protection des données internes), l'Héritage (transmission de propriétés entre parent et enfant), l'Abstraction (masquage de la complexité) et le Polymorphisme (capacité d'une méthode à prendre plusieurs formes).",
+    "options": [
+      "Les routes, les contrôleurs, les vues et les modèles",
+      "L'encapsulation, l'héritage, l'abstraction et le polymorphisme",
+      "La connexion, la sélection, l'insertion et la suppression"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 81,
+    "categorie": "back",
+    "question": "En POO, qu'est-ce que l'encapsulation et comment se matérialise-t-elle ?",
+    "reponse_attendue": "L'encapsulation consiste à isoler et protéger l'état interne d'un objet en masquant ses attributs (rendus privés/protégés) et en interdisant leur modification directe. On passe obligatoirement par des méthodes publiques bien définies (getters et setters) pour interagir de manière contrôlée.",
+    "options": [
+      "Le fait d'enfermer le code de l'application dans un conteneur Docker",
+      "Une technique pour lier des requêtes SQL au front",
+      "Protéger les données internes d'un objet en limitant leur accès direct et en passant par des getters/setters"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 82,
+    "categorie": "back",
+    "question": "Quelle est la différence conceptuelle entre une Classe et une Instance ?",
+    "reponse_attendue": "La classe est le plan d'architecte abstrait, le moule générique définissant la structure, les attributs et les comportements possibles. L'instance est l'objet physique et concret, matérialisé en mémoire à partir de ce moule à l'aide du mot-clé `new`.",
+    "options": [
+      "La classe est stockée dans MySQL, l'instance est stockée dans React",
+      "La classe est le modèle conceptuel (le moule), l'instance est l'objet concret créé à partir de ce modèle",
+      "Il n'y a aucune différence, ce sont deux termes rigoureusement équivalents"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 83,
+    "categorie": "back",
+    "question": "Expliquez les rôles respectifs des composants du pattern architectural MVC.",
+    "reponse_attendue": "Le Modèle gère la logique métier, les calculs et les interactions directes avec la BDD. La Vue s'occupe uniquement de l'affichage final et de la mise en forme graphique pour l'utilisateur. Le Contrôleur sert de chef d'orchestre : il reçoit les requêtes, interroge le modèle et distribue le résultat à la vue (ou renvoie du JSON).",
+    "options": [
+      "Le modèle affiche, la vue calcule, le contrôleur stocke en BDD",
+      "Le Modèle gère les données/logique métier, la Vue s'occupe de l'affichage, et le Contrôleur coordonne les deux en interceptant les requêtes",
+      "C'est un pattern servant exclusivement à configurer les réseaux de conteneurs"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 84,
+    "categorie": "back",
+    "question": "Quelle est la différence d'usage entre un objet Entity et un objet DTO (Data Transfer Object) ?",
+    "reponse_attendue": "Une Entity calque fidèlement la structure physique d'une table SQL en base de données. Un DTO est un objet épuré, créé sur-mesure pour transiter entre les couches (du contrôleur au service). Il ne contient que les données nécessaires à une action donnée, évitant d'exposer toute la table BDD.",
+    "options": [
+      "L'Entity est codée en JavaScript, le DTO est écrit en langage SQL pur",
+      "L'Entity représente une ligne de table de la BDD, le DTO est un objet optimisé pour transférer les données sans exposer les structures internes",
+      "Le DTO est obsolète et a été remplacé par l'Entity"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 85,
+    "categorie": "back",
+    "question": "Quelle est la différence d'implémentation entre la méthode HTTP PUT et la méthode PATCH ?",
+    "reponse_attendue": "PUT réalise un remplacement intégral et complet de la ressource ciblée (si un champ est omis dans l'envoi, il peut être écrasé ou mis à null). PATCH effectue une modification partielle et ciblée, mettant à jour uniquement les attributs spécifiés dans le corps de la requête.",
+    "options": [
+      "PUT sert à créer, PATCH sert à supprimer définitivement",
+      "PUT remplace intégralement la ressource, PATCH n'applique qu'une modification partielle des champs fournis",
+      "PUT est asynchrone alors que PATCH est purement synchrone"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 86,
+    "categorie": "back",
+    "question": "Qu'est-ce que le principe 'Stateless' (sans état) imposé par l'architecture REST ?",
+    "reponse_attendue": "Cela signifie que le serveur ne conserve aucun contexte, historique ni session utilisateur en mémoire entre deux requêtes. Chaque requête HTTP reçue doit être totalement autonome et contenir l'intégralité des informations nécessaires (comme le jeton JWT) pour être comprise et traitée.",
+    "options": [
+      "Le fait que l'API ne puisse pas être arrêtée par le système",
+      "Chaque requête doit être totalement autonome et inclure toutes les données nécessaires, sans que le serveur ne garde de session en mémoire",
+      "Une interdiction d'utiliser des bases de données relationnelles"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 87,
+    "categorie": "bdd",
+    "question": "Quelle est la structure interne exacte d'un jeton JWT (JSON Web Token) ?",
+    "reponse_attendue": "Un JWT est composé de trois sections distinctes séparées par des points : 1. Le Header (contient le type de jeton et l'algorithme de signature), 2. Le Payload (contient les claims, données utilisateurs, rôles et date d'expiration), 3. La Signature (garantit l'intégrité et l'authenticité globale).",
+    "options": [
+      "Un identifiant textuel simple lié à une table de sessions MySQL",
+      "Trois parties séparées par des points : le header (méta/algo), le payload (données/claims) et la signature (sécurité)",
+      "Un fichier binaire chiffré stocké sur le serveur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 88,
+    "categorie": "bdd",
+    "question": "Quelle est la différence fondamentale entre la signature et le chiffrement d'un JWT ?",
+    "reponse_attendue": "La signature garantit uniquement l'intégrité et l'origine du jeton (prouvant qu'il n'a pas été falsifié). Elle ne cache pas les données qui restent lisibles (encodées simplement en Base64). Le chiffrement crypte le contenu pour le rendre totalement opaque et confidentiel.",
+    "options": [
+      "La signature crypte les données, le chiffrement valide simplement l'auteur",
+      "Un JWT standard est signé (données lisibles mais infalsifiables) et non chiffré (qui cacherait les données de manière confidentielle)",
+      "Il n'y a aucune différence, ce sont deux termes synonymes en sécurité"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 89,
+    "categorie": "bdd",
+    "question": "Où est-il le plus sécurisé de stocker un JWT côté client pour bloquer les failles XSS ?",
+    "reponse_attendue": "L'emplacement recommandé par les experts en sécurité est un Cookie configuré avec l'attribut `HttpOnly` et `Secure`. Cet attribut interdit formellement l'accès au cookie via des scripts JavaScript, neutralisant le vol automatique de token en cas d'attaque XSS.",
+    "options": [
+      "Dans le LocalStorage car il est accessible par tous les fichiers de l'ordinateur",
+      "Dans un cookie configuré en HttpOnly et Secure, le rendant totalement invisible et inaccessible aux scripts JavaScript",
+      "Directement écrit en texte brut dans le fichier index.html"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 90,
+    "categorie": "bdd",
+    "question": "Quelle est la différence fondamentale entre une opération de Hachage (Hash) et de Chiffrement ?",
+    "reponse_attendue": "Le hachage (ex: Bcrypt) est une fonction mathématique à sens unique et strictement irréversible : on ne peut jamais décoder un hash pour retrouver la chaîne initiale. Le chiffrement est une opération bidirectionnelle et réversible à l'aide d'une clé de déchiffrement.",
+    "options": [
+      "Le hachage est réversible, le chiffrement ne l'est pas",
+      "Le hachage crée une empreinte irréversible à sens unique (idéal pour les mots de passe), tandis que le chiffrement est réversible avec une clé",
+      "Le hachage s'apply aux images, le chiffrement aux textes"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 91,
+    "categorie": "bdd",
+    "question": "Qu'est-ce qu'un Salt (sel) en cryptographie et à quoi sert-il lors du hachage ?",
+    "reponse_attendue": "Un sel est une chaîne de caractères aléatoire générée automatiquement et ajoutée au mot de passe de l'utilisateur avant l'opération de hachage. Il garantit que deux mots de passe identiques auront des hashs finaux totalement différents, bloquant les attaques par Rainbow Tables.",
+    "options": [
+      "Un outil de nettoyage des lignes vides de la base de données",
+      "Une clé secrète partagée globalement avec le framework front-end",
+      "Une chaîne aléatoire ajoutée au mot de passe avant hachage pour rendre le hash unique et bloquer les attaques par Rainbow Tables"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 92,
+    "categorie": "bdd",
+    "question": "En modélisation des données, quelle est la différence majeure entre un MCD et un MLD (Méthode MERISE) ?",
+    "reponse_attendue": "Le MCD (Modèle Conceptuel) est une représentation purement abstraite et humaine composée d'Entités et d'Associations avec des cardinalités. Le MLD (Modèle Logique) adapte ce schéma au paradigme relationnel en le traduisant concrètement en Tables, Clés Primaires et Clés Étrangères.",
+    "options": [
+      "Le MCD dépend du SGBD choisi (MySQL, PostgreSQL), pas le MLD",
+      "Le MCD est abstrait (entités/associations), tandis que le MLD traduit ces concepts en structures relationnelles physiques (tables/clés)",
+      "Le MLD est un schéma dessiné à la main, le MCD est généré automatiquement par le serveur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 93,
+    "categorie": "bdd",
+    "question": "Comment se traduit concrètement une relation Many-To-Many (N:M) lors du passage au Modèle Logique de Données (MLD) ?",
+    "reponse_attendue": "Elle donne obligatoirement naissance à une Table Associative intermédiaire (table de jointure). Cette table technique embarque les clés primaires des deux tables parentes transformées en clés étrangères, et peut éventuellement porter des attributs propres à la relation.",
+    "options": [
+      "On fusionne les deux tables parentes en écrasant les doublons",
+      "Par la création d'une table associative intermédiaire contenant les clés étrangères des deux tables reliées",
+      "Le système relationnel rejette la relation car elle est interdite en SQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 94,
+    "categorie": "bdd",
+    "question": "En SQL, quelle est la différence de comportement entre la clause WHERE et la clause HAVING ?",
+    "reponse_attendue": "La clause WHERE effectue un filtrage en amont, ligne par ligne, avant que l'opération de regroupement ou d'agrégation ne soit calculée. La clause HAVING s'exécute en aval, filtrant uniquement les groupes agrégés générés par l'instruction GROUP BY.",
+    "options": [
+      "WHERE filtre les lignes individuelles avant agrégation, HAVING filtre les groupes calculés après un GROUP BY",
+      "WHERE est réservé à MySQL, HAVING est utilisé uniquement dans PostgreSQL",
+      "WHERE s'applique aux tables, HAVING s'applique exclusivement aux index"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 95,
+    "categorie": "bdd",
+    "question": "Quelle est la différence d'exécution entre l'instruction SQL DELETE et l'instruction TRUNCATE ?",
+    "reponse_attendue": "DELETE est une commande du DML qui supprime les lignes une par une en autorisant des filtres précis (clause WHERE) et enregistre chaque suppression dans les journaux de transaction (permettant un ROLLBACK). TRUNCATE supprime instantanément l'intégralité de la table sans condition, réinitialise les compteurs d'auto-incrément, est beaucoup plus rapide mais s'avère irréversible.",
+    "options": [
+      "DELETE vide la mémoire vive, TRUNCATE supprime les fichiers du disque dur",
+      "DELETE supprime de manière ciblée ligne par ligne avec journalisation, TRUNCATE réinitialise et vide instantanément toute la table sans condition",
+      "Ils réalisent exactement la même opération sous deux noms différents"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 96,
+    "categorie": "bdd",
+    "question": "Quelle différence d'analyse y a-t-il entre les fonctions COUNT(*) et COUNT(nom_colonne) en SQL ?",
+    "reponse_attendue": "COUNT(*) comptabilise l'intégralité absolue des lignes présentes dans la table, incluant les lignes contenant des valeurs NULL ou des doublons. COUNT(nom_colonne) analyse spécifiquement la colonne et exclut du décompte final toutes les lignes où cette colonne précise vaut NULL.",
+    "options": [
+      "COUNT(*) est plus lent car il utilise des boucles JavaScript",
+      "COUNT(*) compte toutes les lignes sans exception, tandis que COUNT(colonne) ignore les valeurs NULL de cette colonne",
+      "COUNT(colonne) supprime automatiquement les données après calcul"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 97,
+    "categorie": "bdd",
+    "question": "Qu'est-ce qu'une Vue en base de données relationnelle ?",
+    "reponse_attendue": "Une Vue est une table virtuelle dont le contenu est défini par le résultat d'une requête SQL pré-enregistrée. Elle ne stocke pas physiquement de données redondantes sur le disque, mais s'exécute à la volée pour simplifier des requêtes complexes ou restreindre l'accès à certaines colonnes sensibles.",
+    "options": [
+      "L'interface graphique d'administration de phpMyAdmin",
+      "Une copie physique de sauvegarde automatique de la base de données",
+      "Une table virtuelle générée dynamiquement par une requête SQL enregistrée, facilitant l'accès ou la sécurité"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 98,
+    "categorie": "gestion_projet",
+    "question": "En virtualisation, quelle est la différence fondamentale entre une Image Docker et un Conteneur ?",
+    "reponse_attendue": "L'Image Docker est un fichier d'architecture figé, immuable et en lecture seule, servant de gabarit de configuration complet. Le Conteneur est l'instance vivante, isolée et en cours d'exécution de cette image, dotée d'une couche d'écriture éphémère.",
+    "options": [
+      "L'image est dynamique, le conteneur est une archive morte stockée sur Git",
+      "L'image est le modèle figé en lecture seule (le gabarit), le conteneur est l'instance vivante en cours d'exécution de ce modèle",
+      "L'image s'exécute sur le client React, le conteneur sur le serveur Express"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 99,
+    "categorie": "gestion_projet",
+    "question": "À quoi servent respectivement les fichiers Dockerfile et Docker Compose ?",
+    "reponse_attendue": "Le Dockerfile contient les instructions pas-à-pas pour assembler et construire une image isolée personnalisée. Docker Compose est un outil d'orchestration permettant de définir, configurer et démarrer une architecture multi-conteneurs via un seul fichier YAML.",
+    "options": [
+      "Le Dockerfile compile le code CSS, Docker Compose gère les connexions SQL",
+      "Le Dockerfile définit comment construire une image unique, Docker Compose orchestre et démarre une architecture multi-conteneurs",
+      "Ce sont des outils propriétaires payants non utilisés par les développeurs JavaScript"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 100,
+    "categorie": "gestion_projet",
+    "question": "Quelle est la différence méthodologique entre le framework Scrum et la méthode Kanban ?",
+    "reponse_attendue": "Scrum est hautement structuré et cadencé par des Sprints de durée fixe (1 à 4 semaines) débouchant sur un incrément livrable. Kanban est un flux continu sans interruptions temporelles fixes, dont la règle d'or est de limiter strictement le nombre de tâches simultanées en cours (WIP) pour optimiser la fluidité.",
+    "options": [
+      "Kanban impose des réunions quotidiennes obligatoires de 2 heures, Scrum non",
+      "Scrum est basé sur des itérations de temps fixes (Sprints), alors que Kanban gère un flux de travail continu en limitant le volume de tâches en cours",
+      "Scrum est réservé au Back-End, Kanban est exclusif au Front-End"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 101,
+    "categorie": "gestion_projet",
+    "question": "Quels sont les rôles distincts du Product Owner (PO) et du Scrum Master (SM) dans une équipe Scrum ?",
+    "reponse_attendue": "Le Product Owner porte la vision fonctionnelle du produit, rédige les besoins et priorise le Product Backlog pour maximiser la valeur métier délivrée. Le Scrum Master est un facilitateur méthodologique : il s'assure du respect du cadre Scrum, protège l'équipe des perturbations externes et lève activement les obstacles.",
+    "options": [
+      "Le PO écrit le code JavaScript, le Scrum Master s'occupe de concevoir les schémas MySQL",
+      "Le Product Owner porte la vision fonctionnelle et gère/priorise le backlog, tandis que le Scrum Master protège l'équipe et facilite l'application de la méthode",
+      "Ce sont deux dénominations différentes pour désigner le client final"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 102,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce qu'une Rétrospective de Sprint et quel est son objectif ?",
+    "reponse_attendue": "C'est un rituel Scrum crucial se déroulant à la toute fin de chaque Sprint. L'équipe se réunion pour analyser ses processus internes, identifier ce qui a bien ou mal fonctionné sur le plan humain, technique et organisationnel, afin de voter des actions concrètes d'amélioration continue pour le Sprint suivant.",
+    "options": [
+      "Une démonstration commerciale des fonctionnalités codées devant les clients",
+      "Une session de révision du code source pour y traquer les failles de sécurité OWASP",
+      "Un rituel de fin de sprint dédié à l'analyse du fonctionnement de l'équipe pour en planifier l'amélioration continue"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 103,
+    "categorie": "gestion_projet",
+    "question": "Comment estime-t-on la complexité d'une User Story en agilité et quel outil utilise-t-on fréquemment ?",
+    "reponse_attendue": "On estime la complexité relative (effort requis, incertitude, risques) et non le temps horaire absolu, en attribuant des Points d'Effort (souvent basés sur la suite de Fibonacci). On utilise fréquemment le Planning Poker où chaque développeur vote simultanément avec des cartes pour éviter les biais d'influence.",
+    "options": [
+      "En calculant le nombre exact de lignes de code qui seront écrites",
+      "En points d'effort relatifs (complexité) via des ateliers collaboratifs comme le Planning Poker pour éviter les biais",
+      "Le chef de projet impose unilatéralement le temps de travail requis"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 104,
+    "categorie": "gestion_projet",
+    "question": "En architecture logicielle, quelle est la différence entre le pattern MVC et le modèle d'architecture en 3 couches (3-tiers) ?",
+    "reponse_attendue": "MVC est un design pattern de conception logicielle localisé au sein même de la logique de l'application (niveau code). L'architecture 3-tiers est une organisation globale de l'infrastructure système, séparant physiquement la couche de Présentation (Client), la couche de Logique Métier (Serveur applicatif) et la couche de Données (Serveur de BDD).",
+    "options": [
+      "MVC et 3-tiers désignent exactement le même outil informatique",
+      "MVC organise le code en interne (Modèle, Vue, Contrôleur), tandis que le 3-tiers sépare physiquement l'infrastructure globale (Présentation, Serveur d'application, BDD)",
+      "L'architecture 3-tiers interdit formellement l'utilisation du JavaScript"
+    ],
+    "solution": 1
   }
 
 ]

@@ -6,11 +6,12 @@ export default function Navbar({ currentPage, setCurrentPage }) {
     { id: 'front', label: '🎨 Front-End' },
     { id: 'back', label: '⚙️ Back-End' },
     { id: 'bdd', label: '📊 BDD & Sécurité' },
+    { id: 'gestion_projet', label: '🚀 Gestion de Projet' }, // <-- Nouveau bouton
   ];
 
   return (
     <nav style={{ background: '#1e293b', padding: '1rem', color: 'white' }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -22,7 +23,8 @@ export default function Navbar({ currentPage, setCurrentPage }) {
               padding: '0.5rem 1rem',
               borderRadius: '6px',
               cursor: 'pointer',
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              transition: 'background 0.2s'
             }}
           >
             {tab.label}

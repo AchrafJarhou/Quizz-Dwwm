@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import FrontEnd from './pages/FrontEnd';
 import BackEnd from './pages/BackEnd';
 import Database from './pages/Database';
+import GestionProjet from './pages/GestionProjet'; // <-- Import de la nouvelle page
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -18,6 +19,8 @@ export default function App() {
         return <BackEnd />;
       case 'bdd':
         return <Database />;
+      case 'gestion_projet': // <-- Cas d'affichage pour la gestion de projet
+        return <GestionProjet />;
       default:
         return <Home />;
     }
