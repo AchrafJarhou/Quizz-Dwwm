@@ -1312,6 +1312,507 @@
       "L'architecture 3-tiers interdit formellement l'utilisation du JavaScript"
     ],
     "solution": 1
+  },
+  {
+    "id": 105,
+    "categorie": "back",
+    "question": "Expliquez le pilier de l'Héritage en Programmation Orientée Objet (POO).",
+    "reponse_attendue": "L'héritage permet à une classe enfant de réutiliser, d'étendre et de spécialiser les propriétés et les méthodes d'une classe parent[cite: 131, 132]. Cela évite la duplication de code et structure les objets par hiérarchie.",
+    "exemple_concret": "Créer une classe parente 'Utilisateur' (avec nom, email, mot_de_passe) et faire hériter une classe enfant 'Admin' qui possède des méthodes spécifiques comme 'ajouterUneSalle()'.",
+    "options": [
+      "Le mécanisme de transfert automatique des données vers MySQL",
+      "La capacité d'une classe enfant à récupérer et spécialiser les attributs et méthodes d'une classe parent",
+      "Une technique pour copier graphiquement des composants React"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 106,
+    "categorie": "back",
+    "question": "Expliquez le concept d'Abstraction en POO.",
+    "reponse_attendue": "L'abstraction consiste à masquer les détails d'implémentation internes et complexes d'une classe pour n'exposer que l'essentiel et les fonctionnalités strictement nécessaires à son utilisateur[cite: 133, 134].",
+    "exemple_concret": "Pour utiliser une classe 'GestionnaireEmail', on appelle simplement `.envoyerRappel(reservationId)`. On n'a pas besoin de savoir comment la classe configure les sockets ou se connecte au serveur SMTP.",
+    "options": [
+      "Masquer la complexité technique interne pour ne proposer qu'une interface d'utilisation simple et essentielle",
+      "Une classe qui n'a pas besoin d'être écrite pour fonctionner",
+      "Le fait de supprimer les requêtes SQL complexes"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 107,
+    "categorie": "back",
+    "question": "Qu'est-ce que le Polymorphisme en POO ?",
+    "reponse_attendue": "C'est la capacité de différentes classes à implémenter une même méthode de façon totalement différente, tout en étant appelées via une interface ou une classe parente commune[cite: 135, 136].",
+    "exemple_concret": "Une méthode `notifier()` définie sur 'Utilisateur'. Elle enverra un SMS pour un 'Client' mais un message Slack pour un 'Administrateur'. L'appel reste le même : `user.notifier()`.",
+    "options": [
+      "Le changement dynamique du type d'une variable en JavaScript",
+      "L'exécution d'un script sur plusieurs serveurs Node simultanément",
+      "La capacité de plusieurs classes à exécuter une même méthode de manière différente via un socle commun"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 108,
+    "categorie": "back",
+    "question": "En POO, à quoi sert spécifiquement un Constructeur ?",
+    "reponse_attendue": "Le constructeur est une méthode spéciale appelée automatiquement lors de l'instanciation d'un objet (via le mot-clé 'new') pour initialiser ses attributs avec des valeurs de départ[cite: 141, 142].",
+    "exemple_concret": "Faire `const maSalle = new Salle('A01', 20)` va exécuter le constructeur pour assigner directement le nom et la capacité à l'objet créé.",
+    "options": [
+      "Une méthode spéciale exécutée lors du 'new' pour initialiser les attributs de l'instance d'objet",
+      "Un outil de build qui compile les modules comme Vite",
+      "Une commande SQL servant à créer des tables"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 109,
+    "categorie": "back",
+    "question": "Quelle est la responsabilité du composant 'Controller' dans l'architecture MVC ?",
+    "reponse_attendue": "Le Controller reçoit directement les requêtes HTTP du client, valide les données entrantes, appelle la logique métier appropriée (les services ou modèles) et retourne la réponse adaptée sous forme de vue ou de JSON[cite: 152, 153].",
+    "exemple_concret": "Le fichier `reservationController.js` intercepte le POST de l'utilisateur, vérifie que le JSON contient une date, demande au modèle de l'insérer, puis renvoie un statut 201.",
+    "options": [
+      "Il stocke physiquement les lignes de données dans le disque dur",
+      "Il intercepte les requêtes, orchestre les traitements logiques et renvoie la réponse finale au client",
+      "Il s'occupe exclusivement du style et de la mise en page HTML"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 110,
+    "categorie": "back",
+    "question": "Quelle est la responsabilité du composant 'Model' dans le pattern MVC ?",
+    "reponse_attendue": "Le Model encapsule les données de l'application, gère la logique métier pure, applique les règles de calcul et prend en charge les interactions et requêtes avec la base de données[cite: 154, 155].",
+    "exemple_concret": "La classe `ReservationModel` contient la fonction SQL qui va vérifier s'il existe déjà une réservation pour la salle demandée.",
+    "options": [
+      "Gérer les données, les règles métier et faire les requêtes de persistance avec la base de données",
+      "Gérer le routage des URL graphiques côté client",
+      "Afficher les informations sous forme de tableaux à l'utilisateur"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 111,
+    "categorie": "back",
+    "question": "Quelle est la responsabilité de la 'Vue' (View) dans l'architecture MVC ?",
+    "reponse_attendue": "La Vue est responsable de la présentation visuelle et de la mise en forme des données pour l'utilisateur final[cite: 156, 157]. Elle doit rester totalement dépourvue de logique métier ou de requêtes BDD directes[cite: 157].",
+    "exemple_concret": "Dans une application moderne découplée, votre projet React fait office de Vue en affichant les données reçues par l'API.",
+    "options": [
+      "Valider la validité des mots de passe en arrière-plan",
+      "Exécuter les fonctions d'insertion dans MySQL",
+      "Afficher et présenter les données à l'utilisateur sans contenir de logique métier"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 112,
+    "categorie": "back",
+    "question": "Comment l'application de l'architecture MVC améliore-t-elle la maintenabilité d'un projet ?",
+    "reponse_attendue": "En appliquant une stricte séparation des responsabilités[cite: 151, 163]. Le code est découpé en briques logiques isolées, ce qui le rend plus lisible, beaucoup plus facile à faire évoluer, et testable indépendamment[cite: 163].",
+    "options": [
+      "En accélérant la vitesse du réseau internet de l'utilisateur",
+      "En fusionnant toutes les fonctions dans un seul fichier global",
+      "En séparant le code selon les responsabilités (BDD, affichage, logique) pour le rendre lisible, évolutif et testable"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 113,
+    "categorie": "back",
+    "question": "Qu'est-ce qu'une API REST et sur quels grands principes repose-t-elle ?",
+    "reponse_attendue": "C'est une interface de programmation basée sur le protocole HTTP[cite: 173]. Elle identifie chaque ressource par une URI unique et utilise une communication sans état (stateless) où chaque requête se suffit à elle-même[cite: 173].",
+    "options": [
+      "Une interface de communication HTTP standardisée, structurée par ressources (URI) et fonctionnant sans état (stateless)",
+      "Une bibliothèque graphique pour faire des animations en CSS",
+      "Une base de données qui n'utilise pas de tableaux"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 114,
+    "categorie": "back",
+    "question": "Que signifie littéralement l'acronyme REST ?",
+    "reponse_attendue": "REST signifie Representational State Transfer[cite: 175].",
+    "options": [
+      "Request Encryption Security Token",
+      "Representational State Transfer",
+      "Responsive Element Styling Technique"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 115,
+    "categorie": "back",
+    "question": "Quels sont les verbes HTTP principaux (méthodes) utilisés par une API REST ?",
+    "reponse_attendue": "Les méthodes principales sont GET (lire), POST (créer), PUT (remplacer totalement), PATCH (modifier partiellement) et DELETE (supprimer)[cite: 176, 177, 179].",
+    "options": [
+      "GET, POST, PUT, PATCH, DELETE",
+      "FETCH, PUSH, SEND, REMOVE",
+      "READ, WRITE, UPDATE, DESTROY"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 116,
+    "categorie": "back",
+    "question": "Dressez la liste des principaux codes de statut HTTP attendus par le jury.",
+    "reponse_attendue": "200 (Succès), 201 (Créé), 400 (Requête invalide), 401 (Non authentifié), 403 (Accès refusé), 404 (Non trouvé), 409 (Conflit), et 500 (Erreur interne du serveur)[cite: 181].",
+    "exemple_concret": "Renvoyer un code 409 (Conflit) si un utilisateur tente de réserver une salle déjà prise sur le même créneau.",
+    "options": [
+      "200 succès, 201 créé, 400 mauvaise requête, 401 non authentifié, 403 interdit, 404 introuvable, 409 conflit, 500 erreur serveur",
+      "100 début, 200 fin, 300 attente, 400 erreur, 500 crash",
+      "Tous les codes HTTP ont la même signification, seul le numéro change pour le navigateur"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 117,
+    "categorie": "back",
+    "question": "Qu'est-ce qu'un 'Endpoint' dans le contexte d'une API ?",
+    "reponse_attendue": "Un endpoint (point d'accès) est une URL spécifique combinée à un verbe HTTP qui permet d'accéder à une ressource ou de déclencher une action précise de l'API[cite: 185].",
+    "exemple_concret": "`GET /api/v1/salles` est l'endpoint qui liste toutes les salles de réunion.",
+    "options": [
+      "La ligne finale de fermeture du fichier server.js",
+      "Une URL associée à un verbe HTTP permettant de manipuler ou d'accéder à une ressource de l'API",
+      "Le port réseau sur lequel écoute MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 118,
+    "categorie": "back",
+    "question": "Pourquoi et comment doit-on versionner une API REST ?",
+    "reponse_attendue": "On versionne une API pour l'ouvrir à de nouvelles évolutions majeures sans casser le fonctionnement des applications clientes existantes[cite: 189, 190]. On intègre généralement le numéro de version directement dans l'URL[cite: 190].",
+    "exemple_concret": "Utiliser l'URL `/api/v1/reservations`. Si l'architecture change complètement l'année prochaine, on créera un préfixe `/api/v2/reservations`.",
+    "options": [
+      "Pour forcer le navigateur à vider son cache LocalStorage",
+      "Pour faire évoluer l'API de manière transparente sans casser les anciens clients en incluant la version dans l'URL (ex: /api/v1)",
+      "Pour indiquer à Git que le projet est terminé"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 119,
+    "categorie": "bdd",
+    "question": "Que contient généralement la section 'Payload' d'un token JWT ?",
+    "reponse_attendue": "Le payload contient les 'claims' (revendications), qui sont les données de l'utilisateur (identifiant unique, rôles, permissions) ainsi que des métadonnées comme la date d'expiration[cite: 199, 206, 207]. Il est simplement encodé en Base64, donc lisible par tous[cite: 207].",
+    "options": [
+      "Le mot de passe crypté de l'utilisateur pour le revérifier",
+      "La clé secrète de chiffrement du serveur Express",
+      "Des données de session non secrètes (ID, rôle, expiration) encodées en Base64"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 120,
+    "categorie": "bdd",
+    "question": "À quoi servent précisément les claims standards 'sub' et 'exp' dans un JWT ?",
+    "reponse_attendue": "La claim 'sub' (subject) représente le sujet du token (l'identifiant unique de l'utilisateur)[cite: 208, 209]. La claim 'exp' (expiration) indique l'horodatage précis marquant la fin de validité du token[cite: 210, 211].",
+    "options": [
+      "sub définit le titre du site et exp accélère l'affichage",
+      "sub représente l'ID unique de l'utilisateur et exp fixe la date limite de validité du token",
+      "Ce sont des configurations pour connecter MySQL"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 121,
+    "categorie": "bdd",
+    "question": "Comment peut-on invalider un token JWT côté serveur avant sa date d'expiration ?",
+    "reponse_attendue": "Comme le JWT est autonome (stateless), le serveur ne peut pas l'annuler à distance nativement[cite: 216]. On doit mettre en place une 'Blacklist' (généralement dans Redis) pour stocker les tokens révoqués jusqu'à leur expiration, ou modifier la clé secrète du serveur[cite: 215].",
+    "exemple_concret": "Lors de la déconnexion, ajouter le token actuel dans une liste noire pour empêcher sa réutilisation immédiate.",
+    "options": [
+      "En envoyant un script de suppression dans le navigateur du client",
+      "Via une liste noire (blacklist) côté serveur ou en changeant la clé de signature globale",
+      "Il suffit de supprimer le fichier questions.json"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 122,
+    "categorie": "bdd",
+    "question": "Qu'est-ce qu'un token CSRF et comment protège-t-il l'application ?",
+    "reponse_attendue": "C'est un jeton unique et éphémère généré par le serveur et transmis au client[cite: 234, 235]. À chaque requête sensible, le serveur vérifie la présence et la validité de ce token pour s'assurer que la demande provient bien de l'application légitime et non d'un site tiers malveillant[cite: 232, 235].",
+    "options": [
+      "Un jeton unique vérifié par le serveur pour s'assurer que la requête provient bien de l'interface légitime et contrer les attaques CSRF",
+      "Un identifiant pour se connecter à la base MySQL",
+      "Un outil de hachage de mot de passe"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 123,
+    "categorie": "bdd",
+    "question": "Pourquoi est-il formellement interdit par le référentiel de stocker les mots de passe en clair ?",
+    "reponse_attendue": "Parce qu'en cas d'intrusion ou de fuite de la base de données, l'intégralité des comptes utilisateurs serait instantanément compromise[cite: 239, 240]. On doit appliquer un hachage fort et salé (comme Bcrypt)[cite: 241].",
+    "options": [
+      "Car MySQL refuse d'enregistrer du texte classique",
+      "Pour protéger l'accès des comptes en cas de fuite de la base de données, en stockant uniquement une empreinte irréversible",
+      "Parce que cela prend trop de place sur le disque dur"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 124,
+    "categorie": "bdd",
+    "question": "Que signifie concrètement 'sanitiser' les entrées utilisateur ?",
+    "reponse_attendue": "Sanitiser consiste à nettoyer, filtrer et désinfecter les données envoyées par les utilisateurs en supprimant ou en échappant les caractères dangereux (comme les balises HTML ou scripts) pour empêcher toute injection de code malveillant[cite: 244, 245].",
+    "exemple_concret": "Utiliser un package comme 'express-validator' pour nettoyer les chaînes saisies dans le formulaire de réservation.",
+    "options": [
+      "Vider la base de données toutes les 24 heures",
+      "Nettoyer et neutraliser les caractères à risque dans les saisies utilisateur pour éviter les injections de code",
+      "Vérifier la taille des images téléversées"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 125,
+    "categorie": "bdd",
+    "question": "Qu'est-ce que la méthode MERISE ?",
+    "reponse_attendue": "MERISE est une méthode standard d'analyse et de modélisation informatique permettant de concevoir des systèmes d'information et des bases de données relationnelles de manière structurée[cite: 251, 252].",
+    "options": [
+      "Une méthode de gestion de projet concurrente de Scrum",
+      "Un framework de développement serveur basé sur Node.js",
+      "Une approche de modélisation pour structurer rigoureusement les données d'un système relationnel"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 126,
+    "categorie": "bdd",
+    "question": "Qu'est-ce que le Modèle Physique de Données (MPD) chez MERISE ?",
+    "reponse_attendue": "Le MPD est la traduction concrète et technique du modèle dans le SGBD choisi[cite: 257, 258]. Il contient le script SQL exact de création avec les types de colonnes (VARCHAR, INT), les contraintes physiques et les index[cite: 258].",
+    "options": [
+      "Le schéma abstrait dessiné au tout début du projet",
+      "L'implémentation concrète et technique de la base au format du SGBD choisi (types, index, tables réelles)",
+      "L'architecture réseau reliant les serveurs entre eux"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 127,
+    "categorie": "bdd",
+    "question": "Pourquoi est-il indispensable de modéliser une base de données avant de coder ?",
+    "reponse_attendue": "Pour structurer proprement les informations, garantir une parfaite cohérence relationnelle, anticiper les futurs besoins de l'application et éviter absolument les redondances ou pertes de données[cite: 271, 272].",
+    "options": [
+      "Pour s'assurer de la cohérence des données, structurer les relations et anticiper les besoins sans créer de redondances",
+      "C'est une obligation technique pour que Express puisse démarrer",
+      "Pour générer automatiquement le code CSS de l'application"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 128,
+    "categorie": "bdd",
+    "question": "Qu'est-ce qu'un SGBDR ?",
+    "reponse_attendue": "Un Système de Gestion de Base de Données Relationnelle est un logiciel qui permet de structurer, stocker et manipuler des données organisées sous forme de tables reliées logiquement entre elles (ex: MySQL, PostgreSQL)[cite: 278, 279].",
+    "options": [
+      "Un serveur Cloud pour stocker les fichiers multimédias",
+      "Un logiciel gérant des bases de données structurées en tables interconnectées",
+      "Un routeur réseau sécurisé"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 129,
+    "categorie": "bdd",
+    "question": "Quelle est la différence fondamentale entre une base SQL et une base NoSQL ?",
+    "reponse_attendue": "SQL est relationnel, hautement structuré en tables fixes et idéal pour des transactions complexes sécurisées (ACID)[cite: 294, 302]. NoSQL est non relationnel, ultra-flexible (documents JSON, clé-valeur), idéal pour stocker de gros volumes déstructurés et offrir une forte scalabilité[cite: 303].",
+    "options": [
+      "SQL est structuré et relationnel (tables/schémas), NoSQL est flexible et orienté documents ou clé-valeur",
+      "SQL est payant, NoSQL est toujours gratuit",
+      "SQL fonctionne uniquement sous Windows, NoSQL sous Linux"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 130,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce qu'un Volume dans l'environnement Docker ?",
+    "reponse_attendue": "Un volume est un mécanisme dédié permettant de persister les données générées par un conteneur en dehors de l'espace de stockage éphémère de ce dernier[cite: 316, 317]. Les données survivent ainsi à l'arrêt, au crash ou à la suppression du conteneur[cite: 317].",
+    "exemple_concret": "Créer un volume pour le conteneur MySQL afin que vos réservations de salles ne soient pas effacées à chaque mise à jour de l'image.",
+    "options": [
+      "Le niveau sonore des alertes du serveur Express",
+      "La quantité de mémoire vive allouée par le processeur",
+      "Un mécanisme de persistance externe des données pour qu'elles survivent à la destruction du conteneur"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 131,
+    "categorie": "gestion_projet",
+    "question": "Quelle est la différence entre l'Intégration Continue (CI) et le Déploiement Continu (CD) ?",
+    "reponse_attendue": "La CI (Continuous Integration) automatise la phase de build, de vérification de qualité et d'exécution des tests à chaque commit pour valider le code[cite: 319, 322, 326]. La CD (Continuous Deployment) prend le relais pour automatiser l'envoi et la mise en production sur les serveurs si les tests passent[cite: 320, 322].",
+    "options": [
+      "La CI valide et teste automatiquement le code soumis, la CD automatise sa mise en production effective sur les serveurs",
+      "La CI gère le design CSS, la CD gère les scripts MySQL",
+      "Ce sont deux termes identiques désignant Git"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 132,
+    "categorie": "gestion_projet",
+    "question": "Pourquoi est-il stratégique de dockeriser une application web ?",
+    "reponse_attendue": "Pour garantir une parfaite portabilité et une reproductibilité totale entre tous les environnements (développement, staging, production)[cite: 324]. L'application s'exécute de manière rigoureusement identique sur toutes les machines[cite: 324].",
+    "options": [
+      "Pour s'assurer que l'application fonctionne de manière identique partout en éliminant l'effet 'ça marche sur ma machine'",
+      "Pour masquer le code JavaScript aux yeux des utilisateurs",
+      "Pour réduire automatiquement la taille du fichier package.json"
+    ],
+    "solution": 0
+  },
+  {
+    "id": 133,
+    "categorie": "gestion_projet",
+    "question": "Donnez un exemple d'étapes (stages) classiques composant un pipeline CI/CD.",
+    "reponse_attendue": "Un pipeline standard enchaîne les étapes suivantes : 1. Build (compilation), 2. Test (tests unitaires/intégration), 3. Lint/Quality (analyse du code), 4. Package (création de l'image Docker), 5. Deploy (mise en production)[cite: 326].",
+    "options": [
+      "Git add, Git commit, Git push, Git merge",
+      "Build (compilation), Test (validation), Lint (qualité), Package (image), puis Deploy (déploiement)",
+      "Inscrire l'utilisateur, valider la salle, envoyer l'email, clore la session"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 134,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce qu'un Sprint dans la méthodologie Scrum ?",
+    "reponse_attendue": "Un sprint est une itération de temps courte et fixe (généralement entre 1 et 4 semaines) durant laquelle l'équipe s'engage à développer un incrément de produit stable et potentiellement livrable[cite: 335, 336].",
+    "options": [
+      "Une course de vitesse pour finir le projet en 24 heures",
+      "Une itération de développement de durée fixe (1 à 4 semaines) produisant un incrément logiciel livrable",
+      "Une phase de test exclusive effectuée par le client"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 135,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce qu'un Product Backlog ?",
+    "reponse_attendue": "C'est la liste unique, dynamique et priorisée de l'ensemble des fonctionnalités, user stories, améliorations techniques et corrections de bugs à réaliser sur le produit[cite: 341, 342]. Elle est gérée par le Product Owner[cite: 337, 338].",
+    "options": [
+      "Le dossier de sauvegarde des anciennes bases de données",
+      "L'historique Git de la branche principale",
+      "La liste priorisée et centralisée de toutes les fonctionnalités et tâches restant à accomplir sur le produit"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 136,
+    "categorie": "gestion_projet",
+    "question": "Pourquoi fait-on un Daily Meeting (mêlée quotidienne) tous les matins ?",
+    "reponse_attendue": "Pour synchroniser l'équipe technique en moins de 15 minutes, partager l'avancement individuel de la veille, planifier la journée et surtout identifier immédiatement les éventuels blocages techniques[cite: 347, 348].",
+    "options": [
+      "Pour justifier son temps de travail devant le client final",
+      "Pour synchroniser l'équipe au quotidien, suivre l'avancement du sprint et lever au plus tôt les points de blocage",
+      "Pour faire une revue de code complète de chaque ligne écrite"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 137,
+    "categorie": "front",
+    "question": "Qu'est-ce que le 'Hydration Error' (erreur d'hydratation) et comment l'éviter ?",
+    "reponse_attendue": "C'est une erreur qui survient lorsqu'on fait du rendu côté serveur (SSR) ou de la pré-génération. Elle indique que le HTML généré par le serveur ne correspond pas exactement au premier rendu HTML calculé par React sur le navigateur du client.",
+    "exemple_concret": "Insérer par erreur une balise de bloc comme un `<div>` à l'intérieur d'un paragraphe `<p>` dans le composant de vos fiches de salles.",
+    "options": [
+      "Une erreur due à une coupure de la base de données MySQL",
+      "Une incohérence de structure HTML entre le code généré côté serveur et le code interprété côté client par React",
+      "Une panne liée à une surcharge de requêtes asynchrones"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 138,
+    "categorie": "back",
+    "question": "Qu'est-ce que le 'N+1 Query Problem' en SQL et comment votre backend l'évite ?",
+    "reponse_attendue": "C'est un problème de performance majeur. Il survient lorsque l'application fait une première requête pour récupérer N lignes (ex: les réservations), puis exécute une requête supplémentaire pour chaque ligne pour récupérer une relation (ex: le nom de la salle). On l'évite en utilisant des jointures (JOIN) en SQL pur.",
+    "exemple_concret": "Faire `SELECT * FROM reservations`, puis dans une boucle JavaScript, faire un `SELECT * FROM salles WHERE id = ...` pour chaque réservation. Il faut faire un seul `INNER JOIN`.",
+    "options": [
+      "Une erreur d'authentification lorsque plus de 100 utilisateurs sont connectés",
+      "Un bug de boucle infinie dans les middlewares Express",
+      "Un problème de performance où l'application exécute trop de requêtes SQL successives au lieu d'utiliser une seule jointure"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 139,
+    "categorie": "back",
+    "question": "Pourquoi utilisez-vous le mot-clé ASYNC/AWAIT sur vos routes de réservation plutôt que du code synchrone ?",
+    "reponse_attendue": "L'accès à la base de données MySQL est une opération d'Entrées/Sorties (I/O) lente. En utilisant l'asynchronisme, Node.js ne bloque pas le thread principal pendant que MySQL cherche les données. Il peut traiter d'autres requêtes en attendant.",
+    "exemple_concret": "Pendant que MySQL calcule si la 'Salle Alpha' est libre à 14h pour l'utilisateur A, Express peut instantanément afficher la page d'accueil à l'utilisateur B.",
+    "options": [
+      "Pour empêcher le serveur Express de redémarrer tout seul",
+      "Pour libérer l'Event Loop et permettre au serveur de traiter d'autres requêtes en parallèle pendant les accès lents à la BDD",
+      "C'est une obligation esthétique demandée par le navigateur web"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 140,
+    "categorie": "bdd",
+    "question": "Quelle est la différence entre les types de données CHAR et VARCHAR dans MySQL ?",
+    "reponse_attendue": "CHAR a une longueur fixe définie à la création ; si la chaîne est plus courte, MySQL comble le reste avec des espaces (rapide mais consomme de la place). VARCHAR a une longueur variable ; il n'occupe que l'espace réel des caractères stockés (optimise l'espace disque).",
+    "exemple_concret": "Utiliser un `CHAR(5)` pour un code postal ou un code de salle fixe (ex: 'S0001'), et un `VARCHAR(255)` pour le titre de la réunion ou l'email.",
+    "options": [
+      "CHAR est utilisé pour les chiffres, VARCHAR pour les textes",
+      "CHAR a une longueur fixe en mémoire, tandis que VARCHAR s'adapte dynamiquement à la taille réelle du texte stocké",
+      "VARCHAR est une version sécurisée et cryptée du type CHAR"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 141,
+    "categorie": "bdd",
+    "question": "Qu'est-ce qu'une contrainte ON DELETE CASCADE sur une clé étrangère ?",
+    "reponse_attendue": "C'est une règle d'intégrité référentielle. Si une ligne de la table parente est supprimée, MySQL va automatiquement et instantanément supprimer toutes les lignes enfants associées dans la table fille qui pointent vers elle.",
+    "exemple_concret": "Si un administrateur supprime définitivement la 'Salle Réunion B', la contrainte supprime automatiquement toutes les lignes de la table `reservations` liées à cette salle, évitant les données orphelines.",
+    "options": [
+      "Une option pour empêcher la suppression d'une salle si elle est occupée",
+      "Le mécanisme qui supprime automatiquement les lignes enfants liées lorsqu'une ligne parente est effacée",
+      "Une commande Git pour effacer l'historique d'une branche"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 142,
+    "categorie": "securite",
+    "question": "Qu'est-ce que le 'Rate Limiting' et pourquoi devriez-vous l'ajouter sur votre API ?",
+    "reponse_attendue": "Le rate limiting consiste à limiter le nombre de requêtes HTTP qu'un utilisateur (ou une adresse IP) peut effectuer dans un laps de temps donné. Cela protège l'API Express contre les attaques par force brute (ex: tenter 1000 mots de passe) et les attaques DoS (surcharge).",
+    "exemple_concret": "Bloquer temporairement une IP si elle tente plus de 5 connexions infructueuses en moins d'une minute sur la route `/api/login`.",
+    "options": [
+      "Une technique pour accélérer la vitesse d'envoi des formulaires",
+      "Limiter le nombre maximal de lignes qu'on peut insérer dans MySQL",
+      "Une protection limitant le nombre de requêtes par IP pour contrer les attaques par force brute et les surcharges"
+    ],
+    "solution": 2
+  },
+  {
+    "id": 143,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce que la 'Définiton of Done' (DoD) en méthodologie Scrum ?",
+    "reponse_attendue": "La DoD est une liste de critères objectifs et partagés que chaque tâche ou fonctionnalité doit impérativement valider avant d'être officiellement considérée comme 'terminée' par l'équipe.",
+    "exemple_concret": "Pour votre fonctionnalité de réservation : le code doit être relu, les tests doivent passer à 100%, l'interface doit être responsive, et la branche Git doit être fusionnée.",
+    "options": [
+      "La date de rendu finale fixée contractuellement avec le client",
+      "Une liste de critères qualité stricts à valider avant de considérer une fonctionnalité comme réellement finie",
+      "Le bilan comptable du coût global du projet"
+    ],
+    "solution": 1
+  },
+  {
+    "id": 144,
+    "categorie": "gestion_projet",
+    "question": "Qu'est-ce qu'un 'Conflit' sur Git et comment le résout-on proprement ?",
+    "reponse_attendue": "Un conflit survient lorsque deux développeurs modifient exactement les mêmes lignes d'un même fichier sur deux branches différentes, et que Git ne sait pas quelle version choisir lors d'un merge. On le résout manuellement en ouvrant le fichier, en choisissant le code final, puis en faisant un commit.",
+    "exemple_concret": "Toi et un collègue avez modifié le style du bouton de validation dans `Navbar.jsx`. Au moment du merge, Git s'arrête et vous demande de choisir.",
+    "options": [
+      "Une erreur système qui oblige à cloner à nouveau tout le projet",
+      "Une collision lorsque deux développeurs modifient les mêmes lignes, nécessitant un arbitrage manuel du code avant de valider le merge",
+      "Un refus de GitHub si le fichier package.json est trop lourd"
+    ],
+    "solution": 1
   }
 
 ]
